@@ -3,6 +3,7 @@ from utils.utils import *
 from probes_lib.basic import *
 from utils.utils import AverageTracker
 from optimizers_lib.bgd_optimizer import BGD
+from tqdm import tqdm
 import torch
 
 
@@ -254,7 +255,7 @@ class NNTrainer:
 
         self.total_pass_time.reset() if self.total_pass_time is not None else None
 
-        for i, data in enumerate(data_loader, 0):
+        for i, data in tqdm(enumerate(data_loader, 0)):
             self.total_minibatch_time.reset() if self.total_minibatch_time is not None else None
 
             # Get data
@@ -398,6 +399,13 @@ class NNTrainer:
             # Take a step
             if training:
                 self.optimizer.step()
+                
+                # Compute accuracy
+                with torch.no_grad():
+                    outputs_softmax = torch.nn.functional.softmax(outputs, dim=1)
+                    _, predicted = torch.max(outputs_softmax.data, dim=1)
+                    correct_tags = (predicted == labels.data).sum()
+                    acc_avg.add((float(correct_tags) / labels.size(0)) * 100, labels.size(0))
 
             # Print statistics
             if verbose_freq and verbose_freq > 0 and (i % verbose_freq) == (verbose_freq - 1):

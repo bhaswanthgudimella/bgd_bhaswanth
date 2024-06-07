@@ -124,3 +124,11 @@
 ./logs/res/continuous_permuted_mnist_3tasks-05-23_18-25-32 
 ./logs/res/continuous_permuted_mnist_3tasks-05-23_18-27-34 
 ./logs/res/continuous_permuted_mnist_3tasks-05-23_18-31-50 
+./logs/with_map_inference/continuous_permuted_mnist_10tasks-06-07_16-02-12 
+./logs/with_map_inference/continuous_permuted_mnist_10tasks-06-07_16-05-13 
+./logs/with_map_inference/continuous_permuted_mnist_10tasks-06-07_16-06-02 
+./logs/with_map_inference/continuous_permuted_mnist_10tasks-06-07_16-09-08 
+./logs/with_map_inference/continuous_permuted_mnist_10tasks-06-07_16-11-02 
+./logs/with_map_inference/continuous_permuted_mnist_10tasks-06-07_16-11-40 
+./logs/with_map_inference/continuous_permuted_mnist_10tasks-06-07_16-15-39 
+./logs/with_map_inference/continuous_permuted_mnist_10tasks-06-07_16-17-43 
