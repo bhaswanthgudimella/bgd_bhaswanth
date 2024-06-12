@@ -32,7 +32,7 @@ class NNTrainer:
         self.labels_trick = kwargs.get("labels_trick", False)
 
         # Statistics variables
-        self.epochs_trained = 0
+        self.epochs_trained = 0 
         self.probes_manager = kwargs.get("probes_manager", None)
 
         self.inference_methods = kwargs.get("inference_methods", {"test_mc"})
@@ -123,9 +123,12 @@ class NNTrainer:
             if hasattr(get_model(self.net), "set_dataset"):
                 get_model(self.net).set_dataset(self.get_dataset_idx(max_epoch=max_epoch))
                 # breakpoint()
+
+            
             train_loss, train_acc = self.forward(
                 data_loader=self.train_loader[self.get_dataset_idx(max_epoch=max_epoch)], training=True,
-                verbose_freq=verbose_freq)
+                verbose_freq=verbose_freq) 
+            
             if self.save_stats_on_epoch(epoch_number, max_epoch):
                 probe_data = {"train_loss": train_loss,
                               "train_acc": train_acc,
@@ -149,6 +152,7 @@ class NNTrainer:
                         self.eval_mode()
                         if hasattr(get_model(self.net), "set_dataset"):
                             get_model(self.net).set_dataset(ds_idx)
+                        # breakpoint()
                         test_loss, test_acc = self.forward(data_loader=self.test_loader[ds_idx], training=False,
                                                            verbose_freq=0, inference_method=inference_method)
                         avg_acc_over_tasks.add(test_acc)
@@ -203,8 +207,8 @@ class NNTrainer:
 
     def get_dataset_idx(self, max_epoch, epoch_num=None):
         # Datasets (tasks) are splitted evenly over the training
-        epoch_num = epoch_num or self.epochs_trained
-        return min(epoch_num // (max_epoch // self.train_loader.__len__()), self.train_loader.__len__())
+        epoch_num = epoch_num or self.epochs_trained 
+        return min(epoch_num // (max_epoch // self.train_loader.__len__()), self.train_loader.__len__()) 
 
     def save_stats_on_epoch(self, epoch_number, max_epoch):
         # Returns whether or not to save statistics on current epoch.
@@ -256,6 +260,7 @@ class NNTrainer:
         self.total_pass_time.reset() if self.total_pass_time is not None else None
 
         for i, data in tqdm(enumerate(data_loader, 0)):
+            # breakpoint()
             self.total_minibatch_time.reset() if self.total_minibatch_time is not None else None
 
             # Get data
@@ -314,17 +319,20 @@ class NNTrainer:
                 #      MonteCarlo iteration and restore it after the last iteration.
                 if k == 0 and self.save_bn_runnings and training:
                     runnings = save_bn_running(self.net)
+                
+            
 
                 # Calc loss
                 if self.labels_trick and training:
                     # Use labels trick
                     if k == 0:
+                        # breakpoint()
                         # We do so only when k==0 (first MC iteration) because we don't want to check the unique labels
                         #   twice (we assign the labels inplace)
                         # Thus, this check for k==0 is only for algorithms with MonteCarlo iterations, other algorithms
                         #   should just apply the labels trick every iteration.
                         # Get current batch labels (and sort them for reassignment)
-                        unq_lbls = labels.unique().sort()[0]
+                        unq_lbls = labels.unique().sort()[0] # returns values, indices
                         # Assign new labels (0,1 ...)
                         for lbl_idx, lbl in enumerate(unq_lbls):
                             labels[labels == lbl] = lbl_idx
@@ -398,14 +406,14 @@ class NNTrainer:
             set_size += labels.size(0)
             # Take a step
             if training:
-                self.optimizer.step()
+                self.optimizer.step() 
                 
                 # Compute accuracy
                 with torch.no_grad():
                     outputs_softmax = torch.nn.functional.softmax(outputs, dim=1)
                     _, predicted = torch.max(outputs_softmax.data, dim=1)
                     correct_tags = (predicted == labels.data).sum()
-                    acc_avg.add((float(correct_tags) / labels.size(0)) * 100, labels.size(0))
+                    acc_avg.add((float(correct_tags) / labels.size(0)) * 100, labels.size(0)) 
 
             # Print statistics
             if verbose_freq and verbose_freq > 0 and (i % verbose_freq) == (verbose_freq - 1):

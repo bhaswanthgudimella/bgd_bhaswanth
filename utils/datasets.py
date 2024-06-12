@@ -5,6 +5,7 @@ import numpy as np
 import os
 import codecs
 from torch.distributions.categorical import Categorical
+# from torch.utils.data import DataLoader
 import torch.utils.data as data
 from PIL import Image
 import errno
@@ -367,6 +368,8 @@ class DatasetsLoaders:
                 test_loaders.append(torch.utils.data.DataLoader(test_set, batch_size=self.batch_size,
                                                                 shuffle=False, num_workers=self.num_workers,
                                                                 pin_memory=pin_memory))
+                
+            
             self.test_loader = test_loaders
             # Concat datasets
             total_iters = kwargs.get("total_iters", None)
@@ -374,6 +377,8 @@ class DatasetsLoaders:
             assert total_iters is not None
             beta = kwargs.get("contpermuted_beta", 3)
             all_datasets = torch.utils.data.ConcatDataset(tasks_datasets)
+
+            # breakpoint()
 
             # Create probabilities of tasks over iterations
             self.tasks_probs_over_iterations = [_create_task_probs(total_iters, self.num_of_permutations+1, task_id,
@@ -393,11 +398,16 @@ class DatasetsLoaders:
 
             train_sampler = ContinuousMultinomialSampler(data_source=all_datasets, samples_in_batch=self.batch_size,
                                                          tasks_samples_indices=tasks_samples_indices,
-                                                         tasks_probs_over_iterations=
-                                                             self.tasks_probs_over_iterations,
-                                                         num_of_batches=kwargs.get("iterations_per_virtual_epc", 1))
+                                                         tasks_probs_over_iterations=self.tasks_probs_over_iterations,
+                                                         num_of_batches=kwargs.get("iterations_per_virtual_epc", 1) )
+            
+            
+            # breakpoint() 
             self.train_loader = torch.utils.data.DataLoader(all_datasets, batch_size=self.batch_size,
                                                             num_workers=self.num_workers, sampler=train_sampler, pin_memory=pin_memory)
+            # breakpoint()
+            
+          
         
 
 class ContinuousMultinomialSampler(torch.utils.data.Sampler):
@@ -433,6 +443,7 @@ class ContinuousMultinomialSampler(torch.utils.data.Sampler):
         self.samples_in_batch = samples_in_batch
         self.num_of_batches = num_of_batches
 
+
         # Create the samples_distribution_over_time
         self.samples_distribution_over_time = [[] for _ in range(self.num_of_tasks)]
         self.iter_indices_per_iteration = []
@@ -441,33 +452,41 @@ class ContinuousMultinomialSampler(torch.utils.data.Sampler):
             raise ValueError("num_samples should be a positive integeral "
                              "value, but got num_samples={}".format(self.samples_in_batch))
 
-    def generate_iters_indices(self, num_of_iters):
-        from_iter = len(self.iter_indices_per_iteration)
-        for iter_num in range(from_iter, from_iter+num_of_iters):
+    def generate_iters_indices(self, num_of_iters): # 469
+        from_iter = len(self.iter_indices_per_iteration) # 0, 469[indices 0-59999], 938, 1407 ......# from_iter tells no.of batches processed so far (list of lists)
+        '''Remember 46900 is over 100 epochs, only task0 indices will be sampled till 3517 batches as beta = 4'''
+        '''iter_indices_per_iteration is a list that gets updates for every iteration on sampler with 469 batches each batch has 128 indices from different tasks
+         according to the tasks_probs_over_itearation[iter_num] '''
+
+        for iter_num in range(from_iter, from_iter+num_of_iters): 
 
             # Get random number of samples per task (according to iteration distribution)
             tsks = Categorical(probs=self.tasks_probs_over_iterations[iter_num]).sample(torch.Size([self.samples_in_batch]))
             # Generate samples indices for iter_num
             iter_indices = torch.zeros(0, dtype=torch.int32)
-            for task_idx in range(self.num_of_tasks):
-                if self.tasks_probs_over_iterations[iter_num][task_idx] > 0:
-                    num_samples_from_task = (tsks == task_idx).sum().item()
-                    self.samples_distribution_over_time[task_idx].append(num_samples_from_task)
+            for task_idx in range(self.num_of_tasks): 
+                if self.tasks_probs_over_iterations[iter_num][task_idx] > 0: # checking if prob for that task is non_zero 
+                    num_samples_from_task = (tsks == task_idx).sum().item() 
+                    self.samples_distribution_over_time[task_idx].append(num_samples_from_task) # To get a count of how many samples from diff tasks are sampled 
                     # Randomize indices for each task (to allow creation of random task batch)
-                    tasks_inner_permute = np.random.permutation(len(self.tasks_samples_indices[task_idx]))
+                    tasks_inner_permute = np.random.permutation(len(self.tasks_samples_indices[task_idx])) # 60,000 indices of "task_idx" task
                     rand_indices_of_task = tasks_inner_permute[:num_samples_from_task]
-                    iter_indices = torch.cat([iter_indices, self.tasks_samples_indices[task_idx][rand_indices_of_task]])
+                    iter_indices = torch.cat([iter_indices, self.tasks_samples_indices[task_idx][rand_indices_of_task]]) # 128 indices from curr task
                 else:
                     self.samples_distribution_over_time[task_idx].append(0)
             self.iter_indices_per_iteration.append(iter_indices.tolist())
 
     def __iter__(self):
+
+        # breakpoint()
         self.generate_iters_indices(self.num_of_batches)
-        self.current_iteration += self.num_of_batches
+        self.current_iteration += self.num_of_batches 
         return iter([item for sublist in self.iter_indices_per_iteration[self.current_iteration - self.num_of_batches:self.current_iteration] for item in sublist])
 
     def __len__(self):
-        return len(self.samples_in_batch)
+        # return len(self.samples_in_batch)
+        return len(self.data_source) 
+       
 
 
 def _get_linear_line(start, end, direction="up"):
@@ -896,8 +915,13 @@ def ds_cont_permuted_mnist(**kwargs):
                                contpermuted_beta=kwargs.get("contpermuted_beta"),
                                iterations_per_virtual_epc=kwargs.get("iterations_per_virtual_epc"),
                                all_permutation=kwargs.get("permutations", []))]
+    
+    # breakpoint()
+
     test_loaders = [tloader for ds in dataset for tloader in ds.test_loader]
     train_loaders = [ds.train_loader for ds in dataset]
+
+    # breakpoint()
 
     return train_loaders, test_loaders
 

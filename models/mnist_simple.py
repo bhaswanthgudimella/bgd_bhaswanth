@@ -19,17 +19,27 @@ class FC2Layers(nn.Module):
                                          for _ in range(0, self.num_of_datasets)])
 
     def set_dataset(self, ds_idx):
-        self.ds_idx = ds_idx % self.num_of_datasets
+        self.ds_idx = ds_idx % self.num_of_datasets 
 
     def forward(self, x):
-        x = x.view(-1, self.input_size)
-        out = self.layer1(x)
-        out = func.relu(out)
-        out = self.layer2(out)
-        out = func.relu(out)
-        out = self.last_layer[self.ds_idx](out)
-        return out
+        # print(f"Input shape: {x.shape}")
+        x = x.view(-1, self.input_size)  # [128, 784]
+        # print(f"Shape after view: {x.shape}")
 
+        out = self.layer1(x)
+        # print(f"Shape after layer1: {out.shape}")
+        out = func.relu(out)
+        # print(f"Shape after ReLU 1: {out.shape}")
+
+        out = self.layer2(out)
+        # print(f"Shape after layer2: {out.shape}")
+        out = func.relu(out)
+        # print(f"Shape after ReLU 2: {out.shape}")
+
+        out = self.last_layer[self.ds_idx](out)
+        # print(f"Shape after last layer: {out.shape}")
+
+        return out
 
 def mnist_simple_net(**kwargs):
     return FC2Layers(**kwargs)
@@ -70,12 +80,12 @@ def mnist_simple_net_1000width_domainlearning_1024input_10cls_1ds(**kwargs):
                      num_of_classes=10, **kwargs)
 
 
-def mnist_simple_net_200width_domainlearning_1024input_10cls_1ds(**kwargs):
+def mnist_simple_net_200width_domainlearning_1024input_10cls_1ds(**kwargs): 
     return FC2Layers(input_size=1024, layer1_width=200, layer2_width=200, num_of_datasets=1,
                      num_of_classes=10, **kwargs)
 
 
-def mnist_simple_net_200width_domainlearning_784input_10cls_1ds(**kwargs):
+def mnist_simple_net_200width_domainlearning_784input_10cls_1ds(**kwargs): # use this
     return FC2Layers(input_size=784, layer1_width=200, layer2_width=200, num_of_datasets=1,
                      num_of_classes=10, **kwargs)
 

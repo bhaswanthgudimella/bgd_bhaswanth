@@ -135,7 +135,7 @@ init_params = {"logger": logger}
 if args.init_params != "":
     init_params = dict(init_params, **literal_eval(" ".join(args.init_params)))
 
-init_model(get_model(model), **init_params)
+init_model(get_model(model), **init_params) 
 
 # optimizer model
 optimizer_model = optimizers_lib.__dict__[args.optimizer]

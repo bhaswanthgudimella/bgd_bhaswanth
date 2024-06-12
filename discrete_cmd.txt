@@ -1,0 +1,4 @@
+python main.py --logname discrete_domain_permuted_mnist_10tasks_10epochs_seed143 --nn_arch mnist_simple_net_1000width_domainlearning_1024input_10cls_1ds --test_freq 50 --seed 143 --permute_seed 143 --dataset ds_padded_permuted_mnist --num_epochs $(( 10 * 10 )) --optimizer bgd --std_init 0.045 --batch_size 128 --results_dir permuted_domain_1000width_10epc --train_mc_iters 10 --inference_map --desc desc
+
+
+python main.py --logname discrete_domain_permuted_mnist_10tasks_10epochs_seed143 --nn_arch mnist_simple_net_1000width_domainlearning_1024input_10cls_1ds --test_freq 50 --seed 143 --permute_seed 143 --dataset ds_padded_permuted_mnist --num_epochs 12 --optimizer bgd --std_init 0.045 --batch_size 128 --results_dir permuted_domain_1000width_10epc --train_mc_iters 10 --inference_map --desc desc
