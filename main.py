@@ -100,6 +100,16 @@ save_path = os.path.join("./logs", str(args.results_dir) + "/")
 if not os.path.exists(save_path):
     os.makedirs(save_path)
 
+
+if not os.path.exists('all_experiments_results'):
+    os.makedirs('all_experiments_results')
+
+# Write the initial message to the file before entering the loop
+with open(f'all_experiments_results/{args.results_dir}.txt', 'w') as f:
+    f.write(f"{'*'*100}\n")
+    f.write(f"Writing results to {args.results_dir}\n")
+
+
 args.logname = f"continous_permuted_mnist_{args.num_of_permutations + 1}_tasks"
 logger = Logger(True, save_path + args.logname, True, True)
 
@@ -218,16 +228,17 @@ def agg_client_models_sgd(client_models, client_optimizers):
 
     return agg_model 
 
-def test_agg_model(server_model,test_loaders):
+def test_agg_model(server_model,test_loaders, round_no):
  
     criterion = nn.CrossEntropyLoss()
+
 
     test_accuracies = []
     test_losses = []
 
     with torch.no_grad():
         server_model.eval()
-        for test_loader in test_loaders:
+        for test_loader in test_loaders[:round_no+1]:
             total_loss = 0
             accuracy = 0
             total_batches = 0
@@ -254,9 +265,14 @@ def test_agg_model(server_model,test_loaders):
 
     avg_acc = sum(test_accuracies)/len(test_accuracies)
     avg_loss = sum(test_losses)/len(test_losses)
+  
     
-    logger.info(f"Task wise accuracies are {test_accuracies}")
-    return round(avg_acc * 100,3),round(avg_loss,3)
+    logger.info(f"Task wise accuracies after round {round_no+1} are {test_accuracies} and task_wise_accuracies_lst {test_accuracies}")
+    
+    rounded_test_accuracies = [round(num, 3) for num in test_accuracies]
+    rounded_test_losses = [round(num, 3) for num in test_losses]
+    
+    return round(avg_acc,3), round(avg_loss,3), rounded_test_accuracies, rounded_test_losses 
 
 
 # Dataset
@@ -319,33 +335,15 @@ if args.federated_learning:
 
     avg_test_accuracies = []
     avg_test_losses = []
+    task_wise_accuracies_every_round = []
+    task_wise_losses_every_round = []
     
     for round_no in range(total_rounds):
-
+        avg_acc, avg_loss = 0, 0
         for client_id in range(args.n_clients):
             # Model
             if client_models[client_id] == None and round_no == 0:
-                # probes_manager = ProbesManager()
-                # model = models.__dict__[args.nn_arch](probes_manager=probes_manager)
 
-                # if torch.cuda.is_available():
-                #     model = torch.nn.DataParallel(model).cuda()
-                #     logger.info("Transformed model to CUDA")
-
-                # criterion = nn.CrossEntropyLoss()
-
-                # init_params = {"logger": logger}
-                # if args.init_params != "":
-                #     init_params = dict(init_params, **literal_eval(" ".join(args.init_params)))
-
-                # init_model(get_model(model), **init_params)
-
-                # # optimizer model
-                # optimizer = optimizer_model(model, probes_manager=probes_manager, **optimizer_params)
-
-            # print(dir(optimizer))
-            # print(optimizer.param_groups)
-            # print(optimizer.param_groups.keys())    
                 current_client_trainer = NNTrainer(train_loader=[client_train_loaders[client_id]], test_loader=test_loaders,
                                     criterion=criterion, net=copy.deepcopy(server_model), logger=logger, probes_manager=copy.deepcopy(probes_manager),
                                     std_init=args.std_init, mean_eta=args.mean_eta, train_mc_iters=args.train_mc_iters,
@@ -419,15 +417,23 @@ if args.federated_learning:
             for layer in server_model.parameters():
                 total+=torch.sum(layer)
 
-
-        avg_test_accuracies.append(test_agg_model(server_model,test_loaders)[0])
-        avg_test_losses.append(test_agg_model(server_model,test_loaders)[1])
-
+        round_avg_acc, round_avg_loss, task_wise_test_acc, task_wise_test_loss = test_agg_model(server_model,test_loaders, round_no)
+        avg_test_accuracies.append(round_avg_acc)
+        avg_test_losses.append(round_avg_loss)
+        task_wise_accuracies_every_round.append(task_wise_test_acc)
+        task_wise_losses_every_round.append(task_wise_test_loss)
 
         logger.info(f"Value of server model at round {round_no+1} is {total.item()}")
-        logger.info(f"Aggregated model avg acc and avg loss - {test_agg_model(server_model,test_loaders)}")
+        logger.info(f"Aggregated model avg acc and avg loss - {round_avg_acc, round_avg_loss}")
         
         logger.info(f"Round - {round_no+1} complete")
+
+    with open(f'all_experiments_results/{args.results_dir}.txt', 'a') as f:
+        f.write(f"Task-wise accuracies {args.optimizer}_optim after all rounds are {task_wise_accuracies_every_round}\n")
+        f.write(f"Task-wise losses {args.optimizer}_optim after all rouds are {task_wise_losses_every_round}\n")
+        f.write(f"Average accuracies {args.optimizer}_optim after all rouds are {avg_test_accuracies}\n")
+        f.write(f"Average losses {args.optimizer}_optim after all rouds are {avg_test_losses}\n")
+
 
     if args.optimizer == 'sgd':
         get_accuracy_loss_plot(avg_test_accuracies=avg_test_accuracies, avg_test_losses= avg_test_losses, results_dir= save_path, optimizer = args.optimizer, lr = args.lr)
