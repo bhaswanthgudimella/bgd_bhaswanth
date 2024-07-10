@@ -435,7 +435,7 @@ class NNTrainer:
             # Print statistics
             if verbose_freq and verbose_freq > 0 and (i % verbose_freq) == (verbose_freq - 1):
                 if client_id != None:
-                    self.logger.info("Client id "+str(client_id) + ", " +"Epoch " + str(self.epochs_trained + 1) + ", " + fwd_name + " set, " +
+                    self.logger.info("Client id "+str(client_id + 1) + ", " +"Epoch " + str(self.epochs_trained + 1) + ", " + fwd_name + " set, " +
                                  "Iter " + str(i + 1) +
                                  " current average loss " + str(round(loss_avg.avg,4)))
                 else:

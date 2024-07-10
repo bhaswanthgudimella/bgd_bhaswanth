@@ -85,10 +85,18 @@ IST = pytz.timezone('Asia/Kolkata')
 current_time = datetime.now(IST).strftime("%H:%M_%d-%m-%Y")
 
 
-if args.grad_clip:
-    args.results_dir = f"perm_mnist_{args.num_of_permutations + 1}_tasks_{args.num_epochs}_epochs_{args.mean_eta}_lr_{args.contpermuted_beta}_beta_with_grad_clip_{current_time}"
-else:
-    args.results_dir = f"perm_mnist_{args.num_of_permutations + 1}_tasks_{args.num_epochs}_epochs_{args.mean_eta}_lr_{args.contpermuted_beta}_beta_{current_time}"
+if args.optimizer == 'bgd':
+    if args.grad_clip:
+        args.results_dir = f"perm_mnist_{args.num_of_permutations + 1}_tasks_{args.num_epochs}_epochs_{args.mean_eta}_lr_{args.contpermuted_beta}_beta_with_grad_clip_{current_time}"
+    else:
+        args.results_dir = f"perm_mnist_{args.num_of_permutations + 1}_tasks_{args.num_epochs}_epochs_{args.mean_eta}_lr_{args.contpermuted_beta}_beta_{current_time}"
+
+if args.optimizer == 'sgd':
+    if args.grad_clip:
+        args.results_dir = f"perm_mnist_{args.num_of_permutations + 1}_tasks_{args.num_epochs}_epochs_{args.lr}_lr_{args.contpermuted_beta}_beta_with_grad_clip_{current_time}"
+    else:
+        args.results_dir = f"perm_mnist_{args.num_of_permutations + 1}_tasks_{args.num_epochs}_epochs_{args.lr}_lr_{args.contpermuted_beta}_beta_{current_time}"
+
 
 save_path = os.path.join("./logs", str(args.results_dir) + "/")
 if not os.path.exists(save_path):
@@ -118,6 +126,40 @@ lastlogs_logger = None
 ###########################################################################
 
 print("Dataset is ",args.dataset)
+
+
+def agg_client_models_sgd(client_models, client_optimizers):
+
+
+
+  total_clients = len(client_optimizers.keys())
+
+  agg_model_params = {} # layer_ids, layer_weights
+
+  for client_id in client_optimizers.keys():
+
+    for layer_id, layer in enumerate(client_optimizers[client_id].param_groups):
+
+      if client_id == 0:
+
+        agg_model_params[layer['name']] = torch.div(layer['params'][0], total_clients)
+
+      else:
+
+        agg_model_params[layer['name']].add_(torch.div(layer['params'][0], total_clients))
+
+  #print(model_params_lst,len(model_params_lst))
+
+  # breakpoint()
+
+  agg_model = copy.deepcopy(client_models[0])
+
+  # print("Length of model state dict is ",len(client_models[0].state_dict()))
+
+  agg_model.load_state_dict(agg_model_params)
+
+  return agg_model 
+
 
 
 def agg_client_models(client_models,client_optimizers):
@@ -187,7 +229,7 @@ def agg_client_models(client_models,client_optimizers):
 
     return agg_model
 
-def test_agg_model(server_model,test_loaders):
+def test_agg_model(server_model,test_loaders,round_no):
  
     criterion = nn.CrossEntropyLoss()
 
@@ -196,7 +238,7 @@ def test_agg_model(server_model,test_loaders):
 
     with torch.no_grad():
         server_model.eval()
-        for test_loader in test_loaders:
+        for test_loader in test_loaders[0:round_no+1]:
             total_loss = 0
             accuracy = 0
             total_batches = 0
@@ -224,7 +266,7 @@ def test_agg_model(server_model,test_loaders):
     avg_loss = sum(test_losses)/len(test_losses)
     
     logger.info(f"Task wise accuracies are {test_accuracies}")
-    return round(avg_acc * 100,3),avg_loss
+    return round(avg_acc * 100,3),avg_loss,test_accuracies,test_losses
 
 
 # Dataset
@@ -255,10 +297,19 @@ if args.federated_learning:
     total_rounds = args.num_of_permutations + 1
 
     optimizer_model = optimizers_lib.__dict__[args.optimizer]
-    optimizer_params = dict({"logger": logger,
+
+    if args.optimizer == 'bgd':
+        optimizer_params = dict({"logger": logger,
                                         "mean_eta": args.mean_eta,
                                         "std_init": args.std_init,
                                         "mc_iters": args.train_mc_iters}, **literal_eval(" ".join(args.optimizer_params)))
+    
+
+    if args.optimizer == 'sgd':
+        optimizer_params = dict({"logger": logger,
+                                        "momentum": 0.9,
+                                        "lr": args.lr,
+                                        "weight_decay": 5e-4}, **literal_eval(" ".join(args.optimizer_params)))
 
     probes_manager = ProbesManager()
     server_model = models.__dict__[args.nn_arch](probes_manager=probes_manager)
@@ -277,6 +328,11 @@ if args.federated_learning:
 
     # optimizer model
     optimizer = optimizer_model(server_model, probes_manager=probes_manager, **optimizer_params)
+
+    avg_test_acc_over_rounds  = []
+    avg_test_loss_over_rounds = []
+    task_wise_accuracies_over_rounds = {}
+    task_wise_losses_over_rounds = {}
 
     for round_no in range(total_rounds):
 
@@ -353,17 +409,43 @@ if args.federated_learning:
                   f"{current_client_trainer.train_loader[0].sampler.current_round_start_iter},",
                   f"{current_client_trainer.train_loader[0].sampler.current_round_end_iter}")
         
-        
-        server_model = agg_client_models(client_models,client_optimizers)
+        if args.optimizer == 'bgd':
+            server_model = agg_client_models(client_models,client_optimizers)
+        if args.optimizer == 'sgd':
+            server_model = agg_client_models_sgd(client_models,client_optimizers)
+
+
         total = 0
         with torch.no_grad():
             for layer in server_model.parameters():
                 total+=torch.sum(layer)
+        
         logger.info(f"Value of server model at round {round_no+1} is {total.item()}")
-        logger.info(f"Aggregated model avg acc and avg loss - {test_agg_model(server_model,test_loaders)}")
+        avg_acc,avg_loss,test_accuracies,test_losses = test_agg_model(server_model,test_loaders,round_no=round_no)
+        avg_test_acc_over_rounds.append(avg_acc)
+        avg_test_loss_over_rounds.append(avg_loss)
+        
+        logger.info(f"Aggregated model avg acc and avg loss - {avg_acc},{avg_loss}")
+
+
+        for task_idx,acc in enumerate(test_accuracies):
+            if task_idx in task_wise_accuracies_over_rounds.keys():
+                task_wise_accuracies_over_rounds[task_idx].append(acc)
+            else:
+                task_wise_accuracies_over_rounds[task_idx] = [acc]
+
+        for task_idx,loss in enumerate(test_losses):
+            if task_idx in task_wise_losses_over_rounds.keys():
+                task_wise_losses_over_rounds[task_idx].append(avg_loss)
+            else:
+                task_wise_losses_over_rounds[task_idx] = [loss]
         
         logger.info(f"Round - {round_no+1} complete")
 
+    logger.info(f"The task wise accuracies_over_rounds : {str(task_wise_accuracies_over_rounds)}")
+    logger.info(f"The task wise losses_over_rounds : {str(task_wise_losses_over_rounds)}")
+    logger.info(f"Agg model avg accuracy over rounds : {str(avg_test_acc_over_rounds)}")
+    logger.info(f"Agg model avg loss over rounds :{str(avg_test_loss_over_rounds)}")
     logger.info("Done - Federated Learning Setup")
 
 else:

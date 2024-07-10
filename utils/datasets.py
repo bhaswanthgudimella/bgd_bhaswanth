@@ -160,6 +160,17 @@ def _create_probabilites_over_iterations(total_iters,total_datasets,beta):
     return tasks_probs_over_iterations_lst
 
 
+
+def get_classes_idx_list(full_mnist_dataset,cl_list):
+    labels = full_mnist_dataset.targets
+    idx_list = []
+    for label_idx,label in enumerate(labels):
+        if label in cl_list:
+            idx_list.append(label_idx)
+    
+    return idx_list
+
+
 class DatasetsLoaders:
     def __init__(self, dataset, batch_size=4, num_workers=4, pin_memory=True, **kwargs):
         # print("kwargs in datasetloaders - ",kwargs)
@@ -322,6 +333,7 @@ class DatasetsLoaders:
             self.test_loader = torch.utils.data.DataLoader(self.test_set, batch_size=self.batch_size,
                                                            shuffle=False, num_workers=self.num_workers,
                                                            pin_memory=pin_memory)
+
         if dataset == "FashionMNIST":
             # MNIST:
             #   type               : torch.ByteTensor
@@ -410,6 +422,7 @@ class DatasetsLoaders:
             self.test_loader = torch.utils.data.DataLoader(self.test_set, batch_size=self.batch_size,
                                                            shuffle=False, num_workers=self.num_workers,
                                                            pin_memory=pin_memory)
+        
         if dataset == "CONTPERMUTEDPADDEDMNIST" or dataset == "CONTPERMUTEDMNIST":
 
             # if dataset == "CONTPERMUTEDPADDEDMNIST":
@@ -504,7 +517,100 @@ class DatasetsLoaders:
                 
                 self.train_loader = torch.utils.data.DataLoader(all_datasets, batch_size=self.batch_size,
                                                             num_workers=self.num_workers, sampler=train_sampler, pin_memory=pin_memory)
+        
+
+
+        if dataset == "CONTSPLITMNIST":
+
+            transform = transforms.Compose(
+                    [transforms.ToTensor()])
+
+            classes_lst = [
+                [0, 1],
+                [2, 3],
+                [4, 5],
+                [6, 7],
+                [8, 9]
+            ]
+
+
+            full_train_mnist_dataset = torchvision.datasets.MNIST(root='./data',train=True,download=True,transform=transform)
+
+            full_test_mnist_dataset = torchvision.datasets.MNIST(root='./data',train=False,download=True,transform=transform)
+
+            tasks_datasets = []
+            test_datasets = []
+
+
+            for cl_list in classes_lst:
+                mnist_sub_dataset = torch.utils.data.Subset(full_train_mnist_dataset,indices = get_classes_idx_list(full_train_mnist_dataset,cl_list))
+                mnist_test_sub_dataset = torch.utils.data.Subset(full_test_mnist_dataset,indices = get_classes_idx_list(full_test_mnist_dataset,cl_list))
+                tasks_datasets.append(mnist_sub_dataset)
+                test_datasets.append(mnist_test_sub_dataset)
+    
+        
+            total_len = len(tasks_datasets[0])
+
+            for test_dataset in test_datasets:
+                test_loaders = [torch.utils.data.DataLoader(test_dataset,batch_size=self.batch_size, shuffle=False,num_workers=self.num_workers, pin_memory=pin_memory)]
+        
+
+            tasks_samples_indices = [torch.tensor(range(len(tasks_datasets[0])), dtype=torch.int32)]
+            for _ in range(len(classes_lst)):
+                if not self.federated_learning:
+                    tasks_samples_indices.append(torch.tensor(range(total_len,
+                                                                total_len + len(tasks_datasets[-1])
+                                                                ), dtype=torch.int32))
+                total_len += len(tasks_datasets[-1])
                 
+            
+            self.test_loader = test_loaders
+            # Concat datasets
+            total_iters = kwargs.get("total_iters", None)
+
+            assert total_iters is not None
+            beta = kwargs.get("contpermuted_beta", 3)
+
+            all_datasets = torch.utils.data.ConcatDataset(tasks_datasets)
+
+            tasks_probs_over_iterations_lst = _create_probabilites_over_iterations(total_iters,len(classes_lst),beta)
+            
+            self.tasks_probs_over_iterations = tasks_probs_over_iterations_lst
+
+            #print(len(self.tasks_probs_over_iterations),self.tasks_probs_over_iterations[5800])
+
+            # Create probabilities of tasks over iterations
+
+            #We need to generate a client specific tasks_samples_indices object
+
+            if self.federated_learning:
+                round_end_iters = [_create_task_probs(total_iters,len(classes_lst),task_id,beta)[1]
+                                    for task_id in range(len(classes_lst))]
+
+                print(round_end_iters)
+
+                clients_tasks_samples_indices = generate_client_datasets(tasks_datasets,self.n_clients)
+                self.client_train_loaders = []
+                for client_id in range(self.n_clients):
+                    client_train_sampler = FederatedContinuousMultinomialSampler(data_source=all_datasets, samples_in_batch=self.batch_size,
+                                                            tasks_samples_indices=clients_tasks_samples_indices[client_id],
+                                                            tasks_probs_over_iterations=self.tasks_probs_over_iterations,
+                                                            round_end_iter_lst=round_end_iters)
+                    
+                    train_loader = torch.utils.data.DataLoader(all_datasets,batch_size=self.batch_size,
+                                                               num_workers=self.num_workers,sampler=client_train_sampler,pin_memory=pin_memory)
+
+                    self.client_train_loaders.append(train_loader)
+            else:
+                train_sampler = ContinuousMultinomialSampler(data_source=all_datasets, samples_in_batch=self.batch_size,
+                                                            tasks_samples_indices=tasks_samples_indices,
+                                                            tasks_probs_over_iterations=
+                                                                self.tasks_probs_over_iterations,
+                                                            num_of_batches=kwargs.get("iterations_per_virtual_epc", 1))
+                
+                self.train_loader = torch.utils.data.DataLoader(all_datasets, batch_size=self.batch_size,
+                                                            num_workers=self.num_workers, sampler=train_sampler, pin_memory=pin_memory)
+        
 
          
 class ContinuousMultinomialSampler(torch.utils.data.Sampler):
@@ -883,6 +989,10 @@ def ds_split_mnist(**kwargs):
              First list of the tuple is a list of 5 train loaders, each loader is a task.
              Second list of the tuple is a list of 5 test loaders, each loader is a task.
     """
+
+    if kwargs.get("classes_list",None):
+        classes_lst = kwargs.get("classes_list")
+
     classes_lst = [
         [0, 1],
         [2, 3],
@@ -1067,6 +1177,29 @@ def ds_cont_permuted_mnist(**kwargs):
         train_loaders = [ds.train_loader for ds in dataset]
 
     return train_loaders, test_loaders
+
+
+
+def ds_cont_split_mnist(**kwargs):
+
+    #Add code for a flexible classes_list - default classes list - [[0,1],[2,3],[4,5],[6,7],[8,9]]
+
+    dataset = [DatasetsLoaders("CONTSPLITMNIST", batch_size=kwargs.get("batch_size", 128),
+                               num_workers=kwargs.get("num_workers", 1),
+                               total_iters=(kwargs.get("num_epochs")*kwargs.get("iterations_per_virtual_epc")),
+                               contpermuted_beta=kwargs.get("contpermuted_beta"),
+                               iterations_per_virtual_epc=kwargs.get("iterations_per_virtual_epc"),
+                               fl=kwargs.get("federated_learning",False),n_clients=kwargs.get("n_clients",5))]
+    
+    test_loaders = [tloader for ds in dataset for tloader in ds.test_loader]
+    
+    if kwargs.get("federated_learning",False):
+        train_loaders = dataset[0].client_train_loaders
+    else:
+        train_loaders = [ds.train_loader for ds in dataset]
+
+    return train_loaders, test_loaders
+
 
 
 def ds_visionmix(**kwargs):

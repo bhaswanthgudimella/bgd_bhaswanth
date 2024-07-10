@@ -1,0 +1,1406 @@
+[2024-07-06 10:13:50 Info] Script args: Namespace(dataset='ds_cont_permuted_mnist', nn_arch='mnist_simple_net_200width_domainlearning_784input_10cls_1ds', logname='continous_permuted_mnist_10_tasks', results_dir='perm_mnist_10_tasks_100_epochs_1.0_lr_2_beta_15:43_06-07-2024', seed=1000, num_workers=1, num_epochs=100, batch_size=128, pruning_percents=[], train_mc_iters=10, std_init=0.06, mean_eta=1.0, permanent_prune_on_epoch=-1, permanent_prune_on_epoch_percent=90, test_freq=1, contpermuted_beta=2, optimizer='bgd', optimizer_params='{}', inference_mc=False, inference_map=True, inference_committee=False, inference_aggsoftmax=False, inference_initstd=False, committee_size=0, test_mc_iters=0, init_params=['{"bias_type":', '"xavier",', '"conv_type":', '"xavier",', '"bn_init":', '"01"}'], desc='', bw_to_rgb=False, permuted_offset=False, labels_trick=False, num_of_permutations=9, iterations_per_virtual_epc=469, separate_labels_space=False, permute_seed=2019, federated_learning=True, n_clients=5, grad_clip=False)
+[2024-07-06 10:13:50 Info] Computer name: iiitd with pytorch version: 2.2.2
+[2024-07-06 10:16:47 Info] Transformed model to CUDA
+[2024-07-06 10:16:47 Info] Initialized 0 Conv2d layers using nn.init.xavier_normal_
+[2024-07-06 10:16:47 Info] Initialized 3 linear layers using xavier
+[2024-07-06 10:16:47 Info] Initialized 0 bias conv2d layers using nn.init.xavier.noraml_
+[2024-07-06 10:16:47 Info] Initialized 3 bias linear layers using xavier
+[2024-07-06 10:16:47 Info] Initialized 0 BN layers using weight=1 and bias=0
+[2024-07-06 10:16:47 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 10:16:47 Info] Inference method: {'map'}
+[2024-07-06 10:16:47 Info] Number of parameters in the model is 199,210
+[2024-07-06 10:16:47 Info] Criterion parameters: type=<class 'torch.nn.modules.loss.CrossEntropyLoss'>
+[2024-07-06 10:16:47 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 10:16:47 Info] Training epoch number 1 with dataset number 0
+[2024-07-06 10:17:03 Info] Client id 0, Epoch 1, train set, Iter 500 current average loss 0.3643
+[2024-07-06 10:17:14 Info] Client id 0, Epoch 1, train set, Iter 1000 current average loss 0.2419
+[2024-07-06 10:17:24 Info] Client id 0, Epoch 1, train set, Iter 1500 current average loss 0.1829
+[2024-07-06 10:17:40 Info] Client id 0, Epoch 1, train set, Iter 2000 current average loss 0.1468
+[2024-07-06 10:17:55 Info] Client id 0, Epoch 1, train set, Iter 2500 current average loss 0.1246
+[2024-07-06 10:18:02 Info] Client id 0, Epoch 1, train set, Iter 3000 current average loss 0.1157
+[2024-07-06 10:18:10 Info] Client id 0, Epoch 1, train set, Iter 3500 current average loss 0.1098
+[2024-07-06 10:18:18 Info] Client id 0, Epoch 1, train set, Iter 4000 current average loss 0.1051
+[2024-07-06 10:18:26 Info] Client id 0, Epoch 1, train set, Iter 4500 current average loss 0.1006
+[2024-07-06 10:18:36 Info] Client id 0, Epoch 1, train set, Iter 5000 current average loss 0.0963
+[2024-07-06 10:18:46 Info] Client id 0, Epoch 1, train set, Iter 5500 current average loss 0.0921
+[2024-07-06 10:18:56 Info] Client id 0, Epoch 1, train set, Iter 6000 current average loss 0.0877
+[2024-07-06 10:19:06 Info] Client id 0, Epoch 1, train set, Iter 6500 current average loss 0.0834
+[2024-07-06 10:19:17 Info] Client id 0, Epoch 1, train set, Iter 7000 current average loss 0.0791
+[2024-07-06 10:19:18 Info] Stats for train set of size 900480, loss is 0.0788, acc is 0.0%
+[2024-07-06 10:19:18 Info] Running test set for epoch number 1 for dataset idx 0 using map
+[2024-07-06 10:19:19 Info] Stats for test [map] set of size 10000, loss is 0.1492, acc is 96.91%
+[2024-07-06 10:19:19 Info] Running test set for epoch number 1 for dataset idx 1 using map
+[2024-07-06 10:19:21 Info] Stats for test [map] set of size 10000, loss is 0.116, acc is 96.7%
+[2024-07-06 10:19:21 Info] Running test set for epoch number 1 for dataset idx 2 using map
+[2024-07-06 10:19:23 Info] Stats for test [map] set of size 10000, loss is 4.4929, acc is 12.18%
+[2024-07-06 10:19:23 Info] Running test set for epoch number 1 for dataset idx 3 using map
+[2024-07-06 10:19:25 Info] Stats for test [map] set of size 10000, loss is 4.3434, acc is 10.6%
+[2024-07-06 10:19:25 Info] Running test set for epoch number 1 for dataset idx 4 using map
+[2024-07-06 10:19:26 Info] Stats for test [map] set of size 10000, loss is 4.3715, acc is 9.14%
+[2024-07-06 10:19:26 Info] Running test set for epoch number 1 for dataset idx 5 using map
+[2024-07-06 10:19:29 Info] Stats for test [map] set of size 10000, loss is 5.272, acc is 10.68%
+[2024-07-06 10:19:29 Info] Running test set for epoch number 1 for dataset idx 6 using map
+[2024-07-06 10:19:31 Info] Stats for test [map] set of size 10000, loss is 5.2919, acc is 10.26%
+[2024-07-06 10:19:31 Info] Running test set for epoch number 1 for dataset idx 7 using map
+[2024-07-06 10:19:34 Info] Stats for test [map] set of size 10000, loss is 4.6982, acc is 7.75%
+[2024-07-06 10:19:34 Info] Running test set for epoch number 1 for dataset idx 8 using map
+[2024-07-06 10:19:37 Info] Stats for test [map] set of size 10000, loss is 5.1162, acc is 8.44%
+[2024-07-06 10:19:37 Info] Running test set for epoch number 1 for dataset idx 9 using map
+[2024-07-06 10:19:41 Info] Stats for test [map] set of size 10000, loss is 3.6885, acc is 14.46%
+[2024-07-06 10:19:41 Info] Average accuracy over all tasks for epoch number 1 for dataset idx 9 using map is 27.712
+[2024-07-06 10:19:42 Info] Finished epoch number 1, Took 174 seconds
+[2024-07-06 10:19:42 Info] Inference method: {'map'}
+[2024-07-06 10:19:42 Info] Number of parameters in the model is 199,210
+[2024-07-06 10:19:42 Info] Criterion parameters: type=<class 'torch.nn.modules.loss.CrossEntropyLoss'>
+[2024-07-06 10:19:42 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 10:19:42 Info] Training epoch number 1 with dataset number 0
+[2024-07-06 10:19:57 Info] Client id 1, Epoch 1, train set, Iter 500 current average loss 0.3737
+[2024-07-06 10:20:12 Info] Client id 1, Epoch 1, train set, Iter 1000 current average loss 0.2498
+[2024-07-06 10:20:26 Info] Client id 1, Epoch 1, train set, Iter 1500 current average loss 0.1899
+[2024-07-06 10:20:35 Info] Client id 1, Epoch 1, train set, Iter 2000 current average loss 0.1539
+[2024-07-06 10:20:45 Info] Client id 1, Epoch 1, train set, Iter 2500 current average loss 0.1311
+[2024-07-06 10:21:02 Info] Client id 1, Epoch 1, train set, Iter 3000 current average loss 0.1214
+[2024-07-06 10:21:16 Info] Client id 1, Epoch 1, train set, Iter 3500 current average loss 0.1143
+[2024-07-06 10:21:31 Info] Client id 1, Epoch 1, train set, Iter 4000 current average loss 0.1087
+[2024-07-06 10:21:47 Info] Client id 1, Epoch 1, train set, Iter 4500 current average loss 0.1034
+[2024-07-06 10:22:03 Info] Client id 1, Epoch 1, train set, Iter 5000 current average loss 0.0986
+[2024-07-06 10:22:23 Info] Client id 1, Epoch 1, train set, Iter 5500 current average loss 0.0938
+[2024-07-06 10:22:36 Info] Client id 1, Epoch 1, train set, Iter 6000 current average loss 0.0892
+[2024-07-06 10:22:46 Info] Client id 1, Epoch 1, train set, Iter 6500 current average loss 0.0846
+[2024-07-06 10:22:56 Info] Client id 1, Epoch 1, train set, Iter 7000 current average loss 0.0801
+[2024-07-06 10:22:57 Info] Stats for train set of size 900480, loss is 0.0798, acc is 0.0%
+[2024-07-06 10:22:57 Info] Running test set for epoch number 1 for dataset idx 0 using map
+[2024-07-06 10:22:58 Info] Stats for test [map] set of size 10000, loss is 0.1454, acc is 96.97%
+[2024-07-06 10:22:58 Info] Running test set for epoch number 1 for dataset idx 1 using map
+[2024-07-06 10:23:00 Info] Stats for test [map] set of size 10000, loss is 0.1228, acc is 96.62%
+[2024-07-06 10:23:00 Info] Running test set for epoch number 1 for dataset idx 2 using map
+[2024-07-06 10:23:02 Info] Stats for test [map] set of size 10000, loss is 4.5027, acc is 15.83%
+[2024-07-06 10:23:02 Info] Running test set for epoch number 1 for dataset idx 3 using map
+[2024-07-06 10:23:03 Info] Stats for test [map] set of size 10000, loss is 5.524, acc is 12.66%
+[2024-07-06 10:23:03 Info] Running test set for epoch number 1 for dataset idx 4 using map
+[2024-07-06 10:23:05 Info] Stats for test [map] set of size 10000, loss is 5.3364, acc is 11.25%
+[2024-07-06 10:23:05 Info] Running test set for epoch number 1 for dataset idx 5 using map
+[2024-07-06 10:23:07 Info] Stats for test [map] set of size 10000, loss is 6.2008, acc is 7.53%
+[2024-07-06 10:23:07 Info] Running test set for epoch number 1 for dataset idx 6 using map
+[2024-07-06 10:23:10 Info] Stats for test [map] set of size 10000, loss is 5.5817, acc is 11.03%
+[2024-07-06 10:23:10 Info] Running test set for epoch number 1 for dataset idx 7 using map
+[2024-07-06 10:23:11 Info] Stats for test [map] set of size 10000, loss is 7.0127, acc is 8.59%
+[2024-07-06 10:23:11 Info] Running test set for epoch number 1 for dataset idx 8 using map
+[2024-07-06 10:23:13 Info] Stats for test [map] set of size 10000, loss is 6.1601, acc is 9.85%
+[2024-07-06 10:23:13 Info] Running test set for epoch number 1 for dataset idx 9 using map
+[2024-07-06 10:23:17 Info] Stats for test [map] set of size 10000, loss is 5.0592, acc is 13.11%
+[2024-07-06 10:23:17 Info] Average accuracy over all tasks for epoch number 1 for dataset idx 9 using map is 28.344
+[2024-07-06 10:23:17 Info] Finished epoch number 1, Took 215 seconds
+[2024-07-06 10:23:17 Info] Inference method: {'map'}
+[2024-07-06 10:23:17 Info] Number of parameters in the model is 199,210
+[2024-07-06 10:23:17 Info] Criterion parameters: type=<class 'torch.nn.modules.loss.CrossEntropyLoss'>
+[2024-07-06 10:23:17 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 10:23:17 Info] Training epoch number 1 with dataset number 0
+[2024-07-06 10:23:37 Info] Client id 2, Epoch 1, train set, Iter 500 current average loss 0.355
+[2024-07-06 10:23:49 Info] Client id 2, Epoch 1, train set, Iter 1000 current average loss 0.2355
+[2024-07-06 10:24:02 Info] Client id 2, Epoch 1, train set, Iter 1500 current average loss 0.1795
+[2024-07-06 10:24:18 Info] Client id 2, Epoch 1, train set, Iter 2000 current average loss 0.1456
+[2024-07-06 10:24:33 Info] Client id 2, Epoch 1, train set, Iter 2500 current average loss 0.1246
+[2024-07-06 10:24:47 Info] Client id 2, Epoch 1, train set, Iter 3000 current average loss 0.1159
+[2024-07-06 10:24:57 Info] Client id 2, Epoch 1, train set, Iter 3500 current average loss 0.1101
+[2024-07-06 10:25:10 Info] Client id 2, Epoch 1, train set, Iter 4000 current average loss 0.1054
+[2024-07-06 10:25:22 Info] Client id 2, Epoch 1, train set, Iter 4500 current average loss 0.1011
+[2024-07-06 10:25:34 Info] Client id 2, Epoch 1, train set, Iter 5000 current average loss 0.0972
+[2024-07-06 10:25:45 Info] Client id 2, Epoch 1, train set, Iter 5500 current average loss 0.0929
+[2024-07-06 10:26:03 Info] Client id 2, Epoch 1, train set, Iter 6000 current average loss 0.0884
+[2024-07-06 10:26:25 Info] Client id 2, Epoch 1, train set, Iter 6500 current average loss 0.0839
+[2024-07-06 10:26:50 Info] Client id 2, Epoch 1, train set, Iter 7000 current average loss 0.0796
+[2024-07-06 10:26:52 Info] Stats for train set of size 900480, loss is 0.0793, acc is 0.0%
+[2024-07-06 10:26:52 Info] Running test set for epoch number 1 for dataset idx 0 using map
+[2024-07-06 10:26:54 Info] Stats for test [map] set of size 10000, loss is 0.1526, acc is 96.88%
+[2024-07-06 10:26:54 Info] Running test set for epoch number 1 for dataset idx 1 using map
+[2024-07-06 10:26:58 Info] Stats for test [map] set of size 10000, loss is 0.1267, acc is 96.83%
+[2024-07-06 10:26:58 Info] Running test set for epoch number 1 for dataset idx 2 using map
+[2024-07-06 10:27:00 Info] Stats for test [map] set of size 10000, loss is 4.6338, acc is 11.72%
+[2024-07-06 10:27:00 Info] Running test set for epoch number 1 for dataset idx 3 using map
+[2024-07-06 10:27:04 Info] Stats for test [map] set of size 10000, loss is 4.9548, acc is 9.33%
+[2024-07-06 10:27:04 Info] Running test set for epoch number 1 for dataset idx 4 using map
+[2024-07-06 10:27:08 Info] Stats for test [map] set of size 10000, loss is 4.9521, acc is 5.65%
+[2024-07-06 10:27:08 Info] Running test set for epoch number 1 for dataset idx 5 using map
+[2024-07-06 10:27:13 Info] Stats for test [map] set of size 10000, loss is 5.8113, acc is 9.04%
+[2024-07-06 10:27:13 Info] Running test set for epoch number 1 for dataset idx 6 using map
+[2024-07-06 10:27:17 Info] Stats for test [map] set of size 10000, loss is 4.978, acc is 11.67%
+[2024-07-06 10:27:17 Info] Running test set for epoch number 1 for dataset idx 7 using map
+[2024-07-06 10:27:22 Info] Stats for test [map] set of size 10000, loss is 6.0657, acc is 6.85%
+[2024-07-06 10:27:22 Info] Running test set for epoch number 1 for dataset idx 8 using map
+[2024-07-06 10:27:26 Info] Stats for test [map] set of size 10000, loss is 5.2561, acc is 10.84%
+[2024-07-06 10:27:26 Info] Running test set for epoch number 1 for dataset idx 9 using map
+[2024-07-06 10:27:28 Info] Stats for test [map] set of size 10000, loss is 3.9198, acc is 14.67%
+[2024-07-06 10:27:28 Info] Average accuracy over all tasks for epoch number 1 for dataset idx 9 using map is 27.348
+[2024-07-06 10:27:28 Info] Finished epoch number 1, Took 250 seconds
+[2024-07-06 10:27:28 Info] Inference method: {'map'}
+[2024-07-06 10:27:28 Info] Number of parameters in the model is 199,210
+[2024-07-06 10:27:28 Info] Criterion parameters: type=<class 'torch.nn.modules.loss.CrossEntropyLoss'>
+[2024-07-06 10:27:28 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 10:27:28 Info] Training epoch number 1 with dataset number 0
+[2024-07-06 10:27:45 Info] Client id 3, Epoch 1, train set, Iter 500 current average loss 0.3609
+[2024-07-06 10:28:01 Info] Client id 3, Epoch 1, train set, Iter 1000 current average loss 0.2369
+[2024-07-06 10:28:19 Info] Client id 3, Epoch 1, train set, Iter 1500 current average loss 0.1797
+[2024-07-06 10:28:34 Info] Client id 3, Epoch 1, train set, Iter 2000 current average loss 0.145
+[2024-07-06 10:28:49 Info] Client id 3, Epoch 1, train set, Iter 2500 current average loss 0.1236
+[2024-07-06 10:29:00 Info] Client id 3, Epoch 1, train set, Iter 3000 current average loss 0.1145
+[2024-07-06 10:29:11 Info] Client id 3, Epoch 1, train set, Iter 3500 current average loss 0.1085
+[2024-07-06 10:29:25 Info] Client id 3, Epoch 1, train set, Iter 4000 current average loss 0.1041
+[2024-07-06 10:29:40 Info] Client id 3, Epoch 1, train set, Iter 4500 current average loss 0.0997
+[2024-07-06 10:29:59 Info] Client id 3, Epoch 1, train set, Iter 5000 current average loss 0.0953
+[2024-07-06 10:30:20 Info] Client id 3, Epoch 1, train set, Iter 5500 current average loss 0.0911
+[2024-07-06 10:30:42 Info] Client id 3, Epoch 1, train set, Iter 6000 current average loss 0.0867
+[2024-07-06 10:31:03 Info] Client id 3, Epoch 1, train set, Iter 6500 current average loss 0.0823
+[2024-07-06 10:31:26 Info] Client id 3, Epoch 1, train set, Iter 7000 current average loss 0.0781
+[2024-07-06 10:31:28 Info] Stats for train set of size 900480, loss is 0.0778, acc is 0.0%
+[2024-07-06 10:31:28 Info] Running test set for epoch number 1 for dataset idx 0 using map
+[2024-07-06 10:31:29 Info] Stats for test [map] set of size 10000, loss is 0.148, acc is 96.94%
+[2024-07-06 10:31:29 Info] Running test set for epoch number 1 for dataset idx 1 using map
+[2024-07-06 10:31:33 Info] Stats for test [map] set of size 10000, loss is 0.1203, acc is 96.94%
+[2024-07-06 10:31:33 Info] Running test set for epoch number 1 for dataset idx 2 using map
+[2024-07-06 10:31:37 Info] Stats for test [map] set of size 10000, loss is 5.2775, acc is 9.49%
+[2024-07-06 10:31:37 Info] Running test set for epoch number 1 for dataset idx 3 using map
+[2024-07-06 10:31:41 Info] Stats for test [map] set of size 10000, loss is 4.786, acc is 10.37%
+[2024-07-06 10:31:41 Info] Running test set for epoch number 1 for dataset idx 4 using map
+[2024-07-06 10:31:43 Info] Stats for test [map] set of size 10000, loss is 5.5156, acc is 7.58%
+[2024-07-06 10:31:43 Info] Running test set for epoch number 1 for dataset idx 5 using map
+[2024-07-06 10:31:45 Info] Stats for test [map] set of size 10000, loss is 5.4486, acc is 8.81%
+[2024-07-06 10:31:45 Info] Running test set for epoch number 1 for dataset idx 6 using map
+[2024-07-06 10:31:47 Info] Stats for test [map] set of size 10000, loss is 4.7997, acc is 12.8%
+[2024-07-06 10:31:47 Info] Running test set for epoch number 1 for dataset idx 7 using map
+[2024-07-06 10:31:50 Info] Stats for test [map] set of size 10000, loss is 5.9636, acc is 7.59%
+[2024-07-06 10:31:50 Info] Running test set for epoch number 1 for dataset idx 8 using map
+[2024-07-06 10:31:52 Info] Stats for test [map] set of size 10000, loss is 5.8484, acc is 10.73%
+[2024-07-06 10:31:52 Info] Running test set for epoch number 1 for dataset idx 9 using map
+[2024-07-06 10:31:55 Info] Stats for test [map] set of size 10000, loss is 4.3961, acc is 12.38%
+[2024-07-06 10:31:55 Info] Average accuracy over all tasks for epoch number 1 for dataset idx 9 using map is 27.363
+[2024-07-06 10:31:55 Info] Finished epoch number 1, Took 267 seconds
+[2024-07-06 10:31:55 Info] Inference method: {'map'}
+[2024-07-06 10:31:55 Info] Number of parameters in the model is 199,210
+[2024-07-06 10:31:55 Info] Criterion parameters: type=<class 'torch.nn.modules.loss.CrossEntropyLoss'>
+[2024-07-06 10:31:55 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 10:31:55 Info] Training epoch number 1 with dataset number 0
+[2024-07-06 10:32:17 Info] Client id 4, Epoch 1, train set, Iter 500 current average loss 0.3659
+[2024-07-06 10:32:35 Info] Client id 4, Epoch 1, train set, Iter 1000 current average loss 0.243
+[2024-07-06 10:32:52 Info] Client id 4, Epoch 1, train set, Iter 1500 current average loss 0.1863
+[2024-07-06 10:33:06 Info] Client id 4, Epoch 1, train set, Iter 2000 current average loss 0.1512
+[2024-07-06 10:33:18 Info] Client id 4, Epoch 1, train set, Iter 2500 current average loss 0.1292
+[2024-07-06 10:33:33 Info] Client id 4, Epoch 1, train set, Iter 3000 current average loss 0.1199
+[2024-07-06 10:33:43 Info] Client id 4, Epoch 1, train set, Iter 3500 current average loss 0.1134
+[2024-07-06 10:33:52 Info] Client id 4, Epoch 1, train set, Iter 4000 current average loss 0.1079
+[2024-07-06 10:34:03 Info] Client id 4, Epoch 1, train set, Iter 4500 current average loss 0.1029
+[2024-07-06 10:34:12 Info] Client id 4, Epoch 1, train set, Iter 5000 current average loss 0.0983
+[2024-07-06 10:34:21 Info] Client id 4, Epoch 1, train set, Iter 5500 current average loss 0.0936
+[2024-07-06 10:34:31 Info] Client id 4, Epoch 1, train set, Iter 6000 current average loss 0.0889
+[2024-07-06 10:34:41 Info] Client id 4, Epoch 1, train set, Iter 6500 current average loss 0.0843
+[2024-07-06 10:35:01 Info] Client id 4, Epoch 1, train set, Iter 7000 current average loss 0.0798
+[2024-07-06 10:35:03 Info] Stats for train set of size 900480, loss is 0.0795, acc is 0.0%
+[2024-07-06 10:35:03 Info] Running test set for epoch number 1 for dataset idx 0 using map
+[2024-07-06 10:35:05 Info] Stats for test [map] set of size 10000, loss is 0.1492, acc is 96.78%
+[2024-07-06 10:35:05 Info] Running test set for epoch number 1 for dataset idx 1 using map
+[2024-07-06 10:35:07 Info] Stats for test [map] set of size 10000, loss is 0.1321, acc is 96.7%
+[2024-07-06 10:35:07 Info] Running test set for epoch number 1 for dataset idx 2 using map
+[2024-07-06 10:35:09 Info] Stats for test [map] set of size 10000, loss is 4.7062, acc is 11.82%
+[2024-07-06 10:35:09 Info] Running test set for epoch number 1 for dataset idx 3 using map
+[2024-07-06 10:35:11 Info] Stats for test [map] set of size 10000, loss is 4.8431, acc is 9.24%
+[2024-07-06 10:35:11 Info] Running test set for epoch number 1 for dataset idx 4 using map
+[2024-07-06 10:35:13 Info] Stats for test [map] set of size 10000, loss is 5.1244, acc is 7.42%
+[2024-07-06 10:35:13 Info] Running test set for epoch number 1 for dataset idx 5 using map
+[2024-07-06 10:35:15 Info] Stats for test [map] set of size 10000, loss is 4.8852, acc is 8.42%
+[2024-07-06 10:35:15 Info] Running test set for epoch number 1 for dataset idx 6 using map
+[2024-07-06 10:35:17 Info] Stats for test [map] set of size 10000, loss is 5.5998, acc is 9.67%
+[2024-07-06 10:35:17 Info] Running test set for epoch number 1 for dataset idx 7 using map
+[2024-07-06 10:35:20 Info] Stats for test [map] set of size 10000, loss is 6.0763, acc is 6.99%
+[2024-07-06 10:35:20 Info] Running test set for epoch number 1 for dataset idx 8 using map
+[2024-07-06 10:35:22 Info] Stats for test [map] set of size 10000, loss is 5.2973, acc is 6.55%
+[2024-07-06 10:35:22 Info] Running test set for epoch number 1 for dataset idx 9 using map
+[2024-07-06 10:35:24 Info] Stats for test [map] set of size 10000, loss is 4.3308, acc is 11.85%
+[2024-07-06 10:35:24 Info] Average accuracy over all tasks for epoch number 1 for dataset idx 9 using map is 26.544
+[2024-07-06 10:35:24 Info] Finished epoch number 1, Took 209 seconds
+[2024-07-06 10:35:24 Info] Value of server model at round 1 is -630.8464965820312
+[2024-07-06 10:35:25 Info] Task wise accuracies are [0.9633]
+[2024-07-06 10:35:25 Info] Aggregated model avg acc and avg loss - 96.33,0.1409282587451862
+[2024-07-06 10:35:25 Info] Round - 1 complete
+[2024-07-06 10:35:25 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 10:35:25 Info] Training epoch number 2 with dataset number 0
+[2024-07-06 10:35:49 Info] Client id 0, Epoch 2, train set, Iter 500 current average loss 0.1776
+[2024-07-06 10:36:00 Info] Client id 0, Epoch 2, train set, Iter 1000 current average loss 0.1407
+[2024-07-06 10:36:12 Info] Client id 0, Epoch 2, train set, Iter 1500 current average loss 0.1209
+[2024-07-06 10:36:28 Info] Client id 0, Epoch 2, train set, Iter 2000 current average loss 0.1081
+[2024-07-06 10:36:45 Info] Client id 0, Epoch 2, train set, Iter 2500 current average loss 0.0981
+[2024-07-06 10:37:00 Info] Client id 0, Epoch 2, train set, Iter 3000 current average loss 0.0895
+[2024-07-06 10:37:21 Info] Client id 0, Epoch 2, train set, Iter 3500 current average loss 0.0816
+[2024-07-06 10:37:42 Info] Client id 0, Epoch 2, train set, Iter 4000 current average loss 0.0743
+[2024-07-06 10:38:03 Info] Client id 0, Epoch 2, train set, Iter 4500 current average loss 0.068
+[2024-07-06 10:38:13 Info] Stats for train set of size 600320, loss is 0.0658, acc is 0.0%
+[2024-07-06 10:38:13 Info] Running test set for epoch number 2 for dataset idx 0 using map
+[2024-07-06 10:38:15 Info] Stats for test [map] set of size 10000, loss is 0.2619, acc is 93.55%
+[2024-07-06 10:38:15 Info] Running test set for epoch number 2 for dataset idx 1 using map
+[2024-07-06 10:38:17 Info] Stats for test [map] set of size 10000, loss is 0.1184, acc is 97.25%
+[2024-07-06 10:38:17 Info] Running test set for epoch number 2 for dataset idx 2 using map
+[2024-07-06 10:38:22 Info] Stats for test [map] set of size 10000, loss is 0.1308, acc is 96.59%
+[2024-07-06 10:38:22 Info] Running test set for epoch number 2 for dataset idx 3 using map
+[2024-07-06 10:38:26 Info] Stats for test [map] set of size 10000, loss is 7.2421, acc is 9.84%
+[2024-07-06 10:38:26 Info] Running test set for epoch number 2 for dataset idx 4 using map
+[2024-07-06 10:38:31 Info] Stats for test [map] set of size 10000, loss is 5.8342, acc is 10.18%
+[2024-07-06 10:38:31 Info] Running test set for epoch number 2 for dataset idx 5 using map
+[2024-07-06 10:38:33 Info] Stats for test [map] set of size 10000, loss is 6.0512, acc is 7.79%
+[2024-07-06 10:38:33 Info] Running test set for epoch number 2 for dataset idx 6 using map
+[2024-07-06 10:38:35 Info] Stats for test [map] set of size 10000, loss is 5.3921, acc is 12.99%
+[2024-07-06 10:38:35 Info] Running test set for epoch number 2 for dataset idx 7 using map
+[2024-07-06 10:38:37 Info] Stats for test [map] set of size 10000, loss is 5.4525, acc is 9.81%
+[2024-07-06 10:38:37 Info] Running test set for epoch number 2 for dataset idx 8 using map
+[2024-07-06 10:38:40 Info] Stats for test [map] set of size 10000, loss is 6.1557, acc is 10.86%
+[2024-07-06 10:38:40 Info] Running test set for epoch number 2 for dataset idx 9 using map
+[2024-07-06 10:38:42 Info] Stats for test [map] set of size 10000, loss is 5.0535, acc is 16.13%
+[2024-07-06 10:38:42 Info] Average accuracy over all tasks for epoch number 2 for dataset idx 9 using map is 36.499
+[2024-07-06 10:38:42 Info] Finished epoch number 2, Took 196 seconds
+[2024-07-06 10:38:42 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 10:38:42 Info] Training epoch number 2 with dataset number 0
+[2024-07-06 10:39:10 Info] Client id 1, Epoch 2, train set, Iter 500 current average loss 0.1619
+[2024-07-06 10:39:32 Info] Client id 1, Epoch 2, train set, Iter 1000 current average loss 0.1333
+[2024-07-06 10:39:51 Info] Client id 1, Epoch 2, train set, Iter 1500 current average loss 0.1177
+[2024-07-06 10:40:16 Info] Client id 1, Epoch 2, train set, Iter 2000 current average loss 0.1066
+[2024-07-06 10:40:42 Info] Client id 1, Epoch 2, train set, Iter 2500 current average loss 0.0973
+[2024-07-06 10:41:08 Info] Client id 1, Epoch 2, train set, Iter 3000 current average loss 0.0891
+[2024-07-06 10:41:27 Info] Client id 1, Epoch 2, train set, Iter 3500 current average loss 0.0817
+[2024-07-06 10:41:39 Info] Client id 1, Epoch 2, train set, Iter 4000 current average loss 0.0748
+[2024-07-06 10:42:03 Info] Client id 1, Epoch 2, train set, Iter 4500 current average loss 0.0687
+[2024-07-06 10:42:09 Info] Stats for train set of size 600320, loss is 0.0666, acc is 0.0%
+[2024-07-06 10:42:09 Info] Running test set for epoch number 2 for dataset idx 0 using map
+[2024-07-06 10:42:10 Info] Stats for test [map] set of size 10000, loss is 0.2044, acc is 94.71%
+[2024-07-06 10:42:10 Info] Running test set for epoch number 2 for dataset idx 1 using map
+[2024-07-06 10:42:15 Info] Stats for test [map] set of size 10000, loss is 0.1218, acc is 97.17%
+[2024-07-06 10:42:15 Info] Running test set for epoch number 2 for dataset idx 2 using map
+[2024-07-06 10:42:19 Info] Stats for test [map] set of size 10000, loss is 0.1302, acc is 96.63%
+[2024-07-06 10:42:19 Info] Running test set for epoch number 2 for dataset idx 3 using map
+[2024-07-06 10:42:21 Info] Stats for test [map] set of size 10000, loss is 7.6165, acc is 10.61%
+[2024-07-06 10:42:21 Info] Running test set for epoch number 2 for dataset idx 4 using map
+[2024-07-06 10:42:23 Info] Stats for test [map] set of size 10000, loss is 7.0396, acc is 11.3%
+[2024-07-06 10:42:23 Info] Running test set for epoch number 2 for dataset idx 5 using map
+[2024-07-06 10:42:24 Info] Stats for test [map] set of size 10000, loss is 7.0105, acc is 8.13%
+[2024-07-06 10:42:24 Info] Running test set for epoch number 2 for dataset idx 6 using map
+[2024-07-06 10:42:26 Info] Stats for test [map] set of size 10000, loss is 5.5103, acc is 13.71%
+[2024-07-06 10:42:26 Info] Running test set for epoch number 2 for dataset idx 7 using map
+[2024-07-06 10:42:28 Info] Stats for test [map] set of size 10000, loss is 6.6123, acc is 10.55%
+[2024-07-06 10:42:28 Info] Running test set for epoch number 2 for dataset idx 8 using map
+[2024-07-06 10:42:30 Info] Stats for test [map] set of size 10000, loss is 6.3319, acc is 10.0%
+[2024-07-06 10:42:30 Info] Running test set for epoch number 2 for dataset idx 9 using map
+[2024-07-06 10:42:33 Info] Stats for test [map] set of size 10000, loss is 6.1332, acc is 13.3%
+[2024-07-06 10:42:33 Info] Average accuracy over all tasks for epoch number 2 for dataset idx 9 using map is 36.611
+[2024-07-06 10:42:33 Info] Finished epoch number 2, Took 230 seconds
+[2024-07-06 10:42:33 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 10:42:33 Info] Training epoch number 2 with dataset number 0
+[2024-07-06 10:42:57 Info] Client id 2, Epoch 2, train set, Iter 500 current average loss 0.1784
+[2024-07-06 10:43:16 Info] Client id 2, Epoch 2, train set, Iter 1000 current average loss 0.1419
+[2024-07-06 10:43:38 Info] Client id 2, Epoch 2, train set, Iter 1500 current average loss 0.1221
+[2024-07-06 10:43:52 Info] Client id 2, Epoch 2, train set, Iter 2000 current average loss 0.1097
+[2024-07-06 10:44:19 Info] Client id 2, Epoch 2, train set, Iter 2500 current average loss 0.0994
+[2024-07-06 10:44:45 Info] Client id 2, Epoch 2, train set, Iter 3000 current average loss 0.0907
+[2024-07-06 10:45:12 Info] Client id 2, Epoch 2, train set, Iter 3500 current average loss 0.083
+[2024-07-06 10:45:37 Info] Client id 2, Epoch 2, train set, Iter 4000 current average loss 0.0762
+[2024-07-06 10:45:49 Info] Client id 2, Epoch 2, train set, Iter 4500 current average loss 0.0701
+[2024-07-06 10:45:53 Info] Stats for train set of size 600320, loss is 0.068, acc is 0.0%
+[2024-07-06 10:45:53 Info] Running test set for epoch number 2 for dataset idx 0 using map
+[2024-07-06 10:45:54 Info] Stats for test [map] set of size 10000, loss is 0.2168, acc is 94.42%
+[2024-07-06 10:45:54 Info] Running test set for epoch number 2 for dataset idx 1 using map
+[2024-07-06 10:45:56 Info] Stats for test [map] set of size 10000, loss is 0.1295, acc is 97.28%
+[2024-07-06 10:45:56 Info] Running test set for epoch number 2 for dataset idx 2 using map
+[2024-07-06 10:45:58 Info] Stats for test [map] set of size 10000, loss is 0.1383, acc is 96.79%
+[2024-07-06 10:45:58 Info] Running test set for epoch number 2 for dataset idx 3 using map
+[2024-07-06 10:46:00 Info] Stats for test [map] set of size 10000, loss is 7.3262, acc is 6.0%
+[2024-07-06 10:46:00 Info] Running test set for epoch number 2 for dataset idx 4 using map
+[2024-07-06 10:46:02 Info] Stats for test [map] set of size 10000, loss is 6.3228, acc is 10.42%
+[2024-07-06 10:46:02 Info] Running test set for epoch number 2 for dataset idx 5 using map
+[2024-07-06 10:46:03 Info] Stats for test [map] set of size 10000, loss is 5.7798, acc is 9.41%
+[2024-07-06 10:46:03 Info] Running test set for epoch number 2 for dataset idx 6 using map
+[2024-07-06 10:46:08 Info] Stats for test [map] set of size 10000, loss is 5.3143, acc is 12.21%
+[2024-07-06 10:46:08 Info] Running test set for epoch number 2 for dataset idx 7 using map
+[2024-07-06 10:46:12 Info] Stats for test [map] set of size 10000, loss is 5.5355, acc is 9.17%
+[2024-07-06 10:46:12 Info] Running test set for epoch number 2 for dataset idx 8 using map
+[2024-07-06 10:46:14 Info] Stats for test [map] set of size 10000, loss is 5.9068, acc is 10.52%
+[2024-07-06 10:46:14 Info] Running test set for epoch number 2 for dataset idx 9 using map
+[2024-07-06 10:46:16 Info] Stats for test [map] set of size 10000, loss is 5.4889, acc is 18.27%
+[2024-07-06 10:46:16 Info] Average accuracy over all tasks for epoch number 2 for dataset idx 9 using map is 36.449
+[2024-07-06 10:46:16 Info] Finished epoch number 2, Took 223 seconds
+[2024-07-06 10:46:16 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 10:46:16 Info] Training epoch number 2 with dataset number 0
+[2024-07-06 10:46:37 Info] Client id 3, Epoch 2, train set, Iter 500 current average loss 0.1689
+[2024-07-06 10:46:49 Info] Client id 3, Epoch 2, train set, Iter 1000 current average loss 0.1368
+[2024-07-06 10:47:08 Info] Client id 3, Epoch 2, train set, Iter 1500 current average loss 0.1188
+[2024-07-06 10:47:28 Info] Client id 3, Epoch 2, train set, Iter 2000 current average loss 0.1067
+[2024-07-06 10:47:48 Info] Client id 3, Epoch 2, train set, Iter 2500 current average loss 0.0968
+[2024-07-06 10:48:04 Info] Client id 3, Epoch 2, train set, Iter 3000 current average loss 0.0886
+[2024-07-06 10:48:15 Info] Client id 3, Epoch 2, train set, Iter 3500 current average loss 0.0811
+[2024-07-06 10:48:28 Info] Client id 3, Epoch 2, train set, Iter 4000 current average loss 0.0744
+[2024-07-06 10:48:47 Info] Client id 3, Epoch 2, train set, Iter 4500 current average loss 0.0682
+[2024-07-06 10:48:53 Info] Stats for train set of size 600320, loss is 0.0661, acc is 0.0%
+[2024-07-06 10:48:53 Info] Running test set for epoch number 2 for dataset idx 0 using map
+[2024-07-06 10:48:54 Info] Stats for test [map] set of size 10000, loss is 0.2512, acc is 93.7%
+[2024-07-06 10:48:54 Info] Running test set for epoch number 2 for dataset idx 1 using map
+[2024-07-06 10:48:58 Info] Stats for test [map] set of size 10000, loss is 0.122, acc is 97.38%
+[2024-07-06 10:48:58 Info] Running test set for epoch number 2 for dataset idx 2 using map
+[2024-07-06 10:49:02 Info] Stats for test [map] set of size 10000, loss is 0.1335, acc is 96.79%
+[2024-07-06 10:49:02 Info] Running test set for epoch number 2 for dataset idx 3 using map
+[2024-07-06 10:49:05 Info] Stats for test [map] set of size 10000, loss is 6.9441, acc is 9.84%
+[2024-07-06 10:49:05 Info] Running test set for epoch number 2 for dataset idx 4 using map
+[2024-07-06 10:49:10 Info] Stats for test [map] set of size 10000, loss is 6.4367, acc is 8.46%
+[2024-07-06 10:49:10 Info] Running test set for epoch number 2 for dataset idx 5 using map
+[2024-07-06 10:49:14 Info] Stats for test [map] set of size 10000, loss is 5.9704, acc is 6.81%
+[2024-07-06 10:49:14 Info] Running test set for epoch number 2 for dataset idx 6 using map
+[2024-07-06 10:49:18 Info] Stats for test [map] set of size 10000, loss is 5.7323, acc is 11.73%
+[2024-07-06 10:49:18 Info] Running test set for epoch number 2 for dataset idx 7 using map
+[2024-07-06 10:49:21 Info] Stats for test [map] set of size 10000, loss is 5.4296, acc is 11.81%
+[2024-07-06 10:49:21 Info] Running test set for epoch number 2 for dataset idx 8 using map
+[2024-07-06 10:49:26 Info] Stats for test [map] set of size 10000, loss is 6.2279, acc is 8.63%
+[2024-07-06 10:49:26 Info] Running test set for epoch number 2 for dataset idx 9 using map
+[2024-07-06 10:49:30 Info] Stats for test [map] set of size 10000, loss is 4.8767, acc is 13.97%
+[2024-07-06 10:49:30 Info] Average accuracy over all tasks for epoch number 2 for dataset idx 9 using map is 35.912
+[2024-07-06 10:49:30 Info] Finished epoch number 2, Took 193 seconds
+[2024-07-06 10:49:30 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 10:49:30 Info] Training epoch number 2 with dataset number 0
+[2024-07-06 10:49:53 Info] Client id 4, Epoch 2, train set, Iter 500 current average loss 0.1892
+[2024-07-06 10:50:07 Info] Client id 4, Epoch 2, train set, Iter 1000 current average loss 0.146
+[2024-07-06 10:50:26 Info] Client id 4, Epoch 2, train set, Iter 1500 current average loss 0.125
+[2024-07-06 10:50:43 Info] Client id 4, Epoch 2, train set, Iter 2000 current average loss 0.1106
+[2024-07-06 10:50:55 Info] Client id 4, Epoch 2, train set, Iter 2500 current average loss 0.0999
+[2024-07-06 10:51:06 Info] Client id 4, Epoch 2, train set, Iter 3000 current average loss 0.0908
+[2024-07-06 10:51:18 Info] Client id 4, Epoch 2, train set, Iter 3500 current average loss 0.0829
+[2024-07-06 10:51:30 Info] Client id 4, Epoch 2, train set, Iter 4000 current average loss 0.0759
+[2024-07-06 10:51:41 Info] Client id 4, Epoch 2, train set, Iter 4500 current average loss 0.0696
+[2024-07-06 10:51:45 Info] Stats for train set of size 600320, loss is 0.0674, acc is 0.0%
+[2024-07-06 10:51:45 Info] Running test set for epoch number 2 for dataset idx 0 using map
+[2024-07-06 10:51:47 Info] Stats for test [map] set of size 10000, loss is 0.2543, acc is 93.31%
+[2024-07-06 10:51:47 Info] Running test set for epoch number 2 for dataset idx 1 using map
+[2024-07-06 10:51:52 Info] Stats for test [map] set of size 10000, loss is 0.1284, acc is 97.11%
+[2024-07-06 10:51:52 Info] Running test set for epoch number 2 for dataset idx 2 using map
+[2024-07-06 10:51:56 Info] Stats for test [map] set of size 10000, loss is 0.1336, acc is 96.56%
+[2024-07-06 10:51:56 Info] Running test set for epoch number 2 for dataset idx 3 using map
+[2024-07-06 10:51:58 Info] Stats for test [map] set of size 10000, loss is 5.9861, acc is 8.03%
+[2024-07-06 10:51:58 Info] Running test set for epoch number 2 for dataset idx 4 using map
+[2024-07-06 10:52:02 Info] Stats for test [map] set of size 10000, loss is 6.3149, acc is 9.65%
+[2024-07-06 10:52:02 Info] Running test set for epoch number 2 for dataset idx 5 using map
+[2024-07-06 10:52:04 Info] Stats for test [map] set of size 10000, loss is 7.1638, acc is 7.36%
+[2024-07-06 10:52:04 Info] Running test set for epoch number 2 for dataset idx 6 using map
+[2024-07-06 10:52:06 Info] Stats for test [map] set of size 10000, loss is 5.2951, acc is 14.81%
+[2024-07-06 10:52:06 Info] Running test set for epoch number 2 for dataset idx 7 using map
+[2024-07-06 10:52:11 Info] Stats for test [map] set of size 10000, loss is 6.0236, acc is 12.21%
+[2024-07-06 10:52:11 Info] Running test set for epoch number 2 for dataset idx 8 using map
+[2024-07-06 10:52:14 Info] Stats for test [map] set of size 10000, loss is 6.491, acc is 9.43%
+[2024-07-06 10:52:14 Info] Running test set for epoch number 2 for dataset idx 9 using map
+[2024-07-06 10:52:16 Info] Stats for test [map] set of size 10000, loss is 4.6884, acc is 15.39%
+[2024-07-06 10:52:16 Info] Average accuracy over all tasks for epoch number 2 for dataset idx 9 using map is 36.386
+[2024-07-06 10:52:16 Info] Finished epoch number 2, Took 165 seconds
+[2024-07-06 10:52:16 Info] Value of server model at round 2 is -1103.3939208984375
+[2024-07-06 10:52:19 Info] Task wise accuracies are [0.9369, 0.9723]
+[2024-07-06 10:52:19 Info] Aggregated model avg acc and avg loss - 95.46,0.18701247871784382
+[2024-07-06 10:52:19 Info] Round - 2 complete
+[2024-07-06 10:52:19 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 10:52:19 Info] Training epoch number 3 with dataset number 0
+[2024-07-06 10:52:34 Info] Client id 0, Epoch 3, train set, Iter 500 current average loss 0.1444
+[2024-07-06 10:52:51 Info] Client id 0, Epoch 3, train set, Iter 1000 current average loss 0.1163
+[2024-07-06 10:53:15 Info] Client id 0, Epoch 3, train set, Iter 1500 current average loss 0.1025
+[2024-07-06 10:53:37 Info] Client id 0, Epoch 3, train set, Iter 2000 current average loss 0.0928
+[2024-07-06 10:53:57 Info] Client id 0, Epoch 3, train set, Iter 2500 current average loss 0.0846
+[2024-07-06 10:54:20 Info] Client id 0, Epoch 3, train set, Iter 3000 current average loss 0.0774
+[2024-07-06 10:54:35 Info] Client id 0, Epoch 3, train set, Iter 3500 current average loss 0.0709
+[2024-07-06 10:54:47 Info] Client id 0, Epoch 3, train set, Iter 4000 current average loss 0.0649
+[2024-07-06 10:55:00 Info] Client id 0, Epoch 3, train set, Iter 4500 current average loss 0.0595
+[2024-07-06 10:55:05 Info] Stats for train set of size 600320, loss is 0.0577, acc is 0.0%
+[2024-07-06 10:55:05 Info] Running test set for epoch number 3 for dataset idx 0 using map
+[2024-07-06 10:55:06 Info] Stats for test [map] set of size 10000, loss is 0.4871, acc is 87.94%
+[2024-07-06 10:55:06 Info] Running test set for epoch number 3 for dataset idx 1 using map
+[2024-07-06 10:55:08 Info] Stats for test [map] set of size 10000, loss is 0.1783, acc is 95.55%
+[2024-07-06 10:55:08 Info] Running test set for epoch number 3 for dataset idx 2 using map
+[2024-07-06 10:55:10 Info] Stats for test [map] set of size 10000, loss is 0.1268, acc is 97.37%
+[2024-07-06 10:55:10 Info] Running test set for epoch number 3 for dataset idx 3 using map
+[2024-07-06 10:55:12 Info] Stats for test [map] set of size 10000, loss is 0.1391, acc is 96.36%
+[2024-07-06 10:55:12 Info] Running test set for epoch number 3 for dataset idx 4 using map
+[2024-07-06 10:55:16 Info] Stats for test [map] set of size 10000, loss is 5.799, acc is 10.73%
+[2024-07-06 10:55:16 Info] Running test set for epoch number 3 for dataset idx 5 using map
+[2024-07-06 10:55:19 Info] Stats for test [map] set of size 10000, loss is 5.8837, acc is 8.72%
+[2024-07-06 10:55:19 Info] Running test set for epoch number 3 for dataset idx 6 using map
+[2024-07-06 10:55:21 Info] Stats for test [map] set of size 10000, loss is 5.9221, acc is 12.24%
+[2024-07-06 10:55:21 Info] Running test set for epoch number 3 for dataset idx 7 using map
+[2024-07-06 10:55:23 Info] Stats for test [map] set of size 10000, loss is 6.0953, acc is 10.01%
+[2024-07-06 10:55:23 Info] Running test set for epoch number 3 for dataset idx 8 using map
+[2024-07-06 10:55:25 Info] Stats for test [map] set of size 10000, loss is 5.9323, acc is 11.25%
+[2024-07-06 10:55:25 Info] Running test set for epoch number 3 for dataset idx 9 using map
+[2024-07-06 10:55:28 Info] Stats for test [map] set of size 10000, loss is 5.8241, acc is 13.69%
+[2024-07-06 10:55:28 Info] Average accuracy over all tasks for epoch number 3 for dataset idx 9 using map is 44.386
+[2024-07-06 10:55:28 Info] Finished epoch number 3, Took 188 seconds
+[2024-07-06 10:55:28 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 10:55:28 Info] Training epoch number 3 with dataset number 0
+[2024-07-06 10:55:42 Info] Client id 1, Epoch 3, train set, Iter 500 current average loss 0.1485
+[2024-07-06 10:56:03 Info] Client id 1, Epoch 3, train set, Iter 1000 current average loss 0.1221
+[2024-07-06 10:56:30 Info] Client id 1, Epoch 3, train set, Iter 1500 current average loss 0.107
+[2024-07-06 10:56:55 Info] Client id 1, Epoch 3, train set, Iter 2000 current average loss 0.0963
+[2024-07-06 10:57:12 Info] Client id 1, Epoch 3, train set, Iter 2500 current average loss 0.0876
+[2024-07-06 10:57:24 Info] Client id 1, Epoch 3, train set, Iter 3000 current average loss 0.0801
+[2024-07-06 10:57:39 Info] Client id 1, Epoch 3, train set, Iter 3500 current average loss 0.0731
+[2024-07-06 10:58:06 Info] Client id 1, Epoch 3, train set, Iter 4000 current average loss 0.0668
+[2024-07-06 10:58:24 Info] Client id 1, Epoch 3, train set, Iter 4500 current average loss 0.0611
+[2024-07-06 10:58:29 Info] Stats for train set of size 600320, loss is 0.0592, acc is 0.0%
+[2024-07-06 10:58:29 Info] Running test set for epoch number 3 for dataset idx 0 using map
+[2024-07-06 10:58:30 Info] Stats for test [map] set of size 10000, loss is 0.4972, acc is 87.88%
+[2024-07-06 10:58:30 Info] Running test set for epoch number 3 for dataset idx 1 using map
+[2024-07-06 10:58:35 Info] Stats for test [map] set of size 10000, loss is 0.2112, acc is 94.81%
+[2024-07-06 10:58:35 Info] Running test set for epoch number 3 for dataset idx 2 using map
+[2024-07-06 10:58:37 Info] Stats for test [map] set of size 10000, loss is 0.1323, acc is 97.24%
+[2024-07-06 10:58:37 Info] Running test set for epoch number 3 for dataset idx 3 using map
+[2024-07-06 10:58:39 Info] Stats for test [map] set of size 10000, loss is 0.1423, acc is 96.53%
+[2024-07-06 10:58:39 Info] Running test set for epoch number 3 for dataset idx 4 using map
+[2024-07-06 10:58:43 Info] Stats for test [map] set of size 10000, loss is 7.7469, acc is 10.94%
+[2024-07-06 10:58:43 Info] Running test set for epoch number 3 for dataset idx 5 using map
+[2024-07-06 10:58:45 Info] Stats for test [map] set of size 10000, loss is 7.6687, acc is 8.66%
+[2024-07-06 10:58:45 Info] Running test set for epoch number 3 for dataset idx 6 using map
+[2024-07-06 10:58:47 Info] Stats for test [map] set of size 10000, loss is 6.2416, acc is 10.92%
+[2024-07-06 10:58:47 Info] Running test set for epoch number 3 for dataset idx 7 using map
+[2024-07-06 10:58:49 Info] Stats for test [map] set of size 10000, loss is 6.7372, acc is 9.42%
+[2024-07-06 10:58:49 Info] Running test set for epoch number 3 for dataset idx 8 using map
+[2024-07-06 10:58:51 Info] Stats for test [map] set of size 10000, loss is 6.7617, acc is 10.87%
+[2024-07-06 10:58:51 Info] Running test set for epoch number 3 for dataset idx 9 using map
+[2024-07-06 10:58:53 Info] Stats for test [map] set of size 10000, loss is 6.5761, acc is 11.02%
+[2024-07-06 10:58:53 Info] Average accuracy over all tasks for epoch number 3 for dataset idx 9 using map is 43.829
+[2024-07-06 10:58:53 Info] Finished epoch number 3, Took 205 seconds
+[2024-07-06 10:58:53 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 10:58:53 Info] Training epoch number 3 with dataset number 0
+[2024-07-06 10:59:20 Info] Client id 2, Epoch 3, train set, Iter 500 current average loss 0.1444
+[2024-07-06 10:59:35 Info] Client id 2, Epoch 3, train set, Iter 1000 current average loss 0.119
+[2024-07-06 10:59:49 Info] Client id 2, Epoch 3, train set, Iter 1500 current average loss 0.1057
+[2024-07-06 11:00:17 Info] Client id 2, Epoch 3, train set, Iter 2000 current average loss 0.0954
+[2024-07-06 11:00:43 Info] Client id 2, Epoch 3, train set, Iter 2500 current average loss 0.0864
+[2024-07-06 11:01:08 Info] Client id 2, Epoch 3, train set, Iter 3000 current average loss 0.0788
+[2024-07-06 11:01:30 Info] Client id 2, Epoch 3, train set, Iter 3500 current average loss 0.0722
+[2024-07-06 11:01:43 Info] Client id 2, Epoch 3, train set, Iter 4000 current average loss 0.066
+[2024-07-06 11:01:55 Info] Client id 2, Epoch 3, train set, Iter 4500 current average loss 0.0604
+[2024-07-06 11:02:01 Info] Stats for train set of size 600320, loss is 0.0585, acc is 0.0%
+[2024-07-06 11:02:01 Info] Running test set for epoch number 3 for dataset idx 0 using map
+[2024-07-06 11:02:02 Info] Stats for test [map] set of size 10000, loss is 0.4616, acc is 88.37%
+[2024-07-06 11:02:02 Info] Running test set for epoch number 3 for dataset idx 1 using map
+[2024-07-06 11:02:04 Info] Stats for test [map] set of size 10000, loss is 0.2088, acc is 94.81%
+[2024-07-06 11:02:04 Info] Running test set for epoch number 3 for dataset idx 2 using map
+[2024-07-06 11:02:07 Info] Stats for test [map] set of size 10000, loss is 0.1297, acc is 97.15%
+[2024-07-06 11:02:07 Info] Running test set for epoch number 3 for dataset idx 3 using map
+[2024-07-06 11:02:09 Info] Stats for test [map] set of size 10000, loss is 0.1346, acc is 96.65%
+[2024-07-06 11:02:09 Info] Running test set for epoch number 3 for dataset idx 4 using map
+[2024-07-06 11:02:11 Info] Stats for test [map] set of size 10000, loss is 6.7715, acc is 10.81%
+[2024-07-06 11:02:11 Info] Running test set for epoch number 3 for dataset idx 5 using map
+[2024-07-06 11:02:13 Info] Stats for test [map] set of size 10000, loss is 5.9113, acc is 11.19%
+[2024-07-06 11:02:13 Info] Running test set for epoch number 3 for dataset idx 6 using map
+[2024-07-06 11:02:16 Info] Stats for test [map] set of size 10000, loss is 6.4188, acc is 13.49%
+[2024-07-06 11:02:16 Info] Running test set for epoch number 3 for dataset idx 7 using map
+[2024-07-06 11:02:18 Info] Stats for test [map] set of size 10000, loss is 5.8043, acc is 13.09%
+[2024-07-06 11:02:18 Info] Running test set for epoch number 3 for dataset idx 8 using map
+[2024-07-06 11:02:20 Info] Stats for test [map] set of size 10000, loss is 5.8958, acc is 9.98%
+[2024-07-06 11:02:20 Info] Running test set for epoch number 3 for dataset idx 9 using map
+[2024-07-06 11:02:22 Info] Stats for test [map] set of size 10000, loss is 6.8599, acc is 13.84%
+[2024-07-06 11:02:22 Info] Average accuracy over all tasks for epoch number 3 for dataset idx 9 using map is 44.938
+[2024-07-06 11:02:22 Info] Finished epoch number 3, Took 208 seconds
+[2024-07-06 11:02:22 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 11:02:22 Info] Training epoch number 3 with dataset number 0
+[2024-07-06 11:02:44 Info] Client id 3, Epoch 3, train set, Iter 500 current average loss 0.1422
+[2024-07-06 11:02:59 Info] Client id 3, Epoch 3, train set, Iter 1000 current average loss 0.1194
+[2024-07-06 11:03:23 Info] Client id 3, Epoch 3, train set, Iter 1500 current average loss 0.1047
+[2024-07-06 11:03:40 Info] Client id 3, Epoch 3, train set, Iter 2000 current average loss 0.0946
+[2024-07-06 11:03:53 Info] Client id 3, Epoch 3, train set, Iter 2500 current average loss 0.0863
+[2024-07-06 11:04:05 Info] Client id 3, Epoch 3, train set, Iter 3000 current average loss 0.0795
+[2024-07-06 11:04:18 Info] Client id 3, Epoch 3, train set, Iter 3500 current average loss 0.073
+[2024-07-06 11:04:31 Info] Client id 3, Epoch 3, train set, Iter 4000 current average loss 0.0672
+[2024-07-06 11:04:44 Info] Client id 3, Epoch 3, train set, Iter 4500 current average loss 0.0617
+[2024-07-06 11:04:48 Info] Stats for train set of size 600320, loss is 0.0598, acc is 0.0%
+[2024-07-06 11:04:48 Info] Running test set for epoch number 3 for dataset idx 0 using map
+[2024-07-06 11:04:50 Info] Stats for test [map] set of size 10000, loss is 0.452, acc is 89.16%
+[2024-07-06 11:04:50 Info] Running test set for epoch number 3 for dataset idx 1 using map
+[2024-07-06 11:04:53 Info] Stats for test [map] set of size 10000, loss is 0.2001, acc is 94.99%
+[2024-07-06 11:04:53 Info] Running test set for epoch number 3 for dataset idx 2 using map
+[2024-07-06 11:04:55 Info] Stats for test [map] set of size 10000, loss is 0.1193, acc is 97.31%
+[2024-07-06 11:04:55 Info] Running test set for epoch number 3 for dataset idx 3 using map
+[2024-07-06 11:04:58 Info] Stats for test [map] set of size 10000, loss is 0.153, acc is 96.26%
+[2024-07-06 11:04:58 Info] Running test set for epoch number 3 for dataset idx 4 using map
+[2024-07-06 11:05:01 Info] Stats for test [map] set of size 10000, loss is 6.872, acc is 9.13%
+[2024-07-06 11:05:01 Info] Running test set for epoch number 3 for dataset idx 5 using map
+[2024-07-06 11:05:03 Info] Stats for test [map] set of size 10000, loss is 6.1331, acc is 9.26%
+[2024-07-06 11:05:03 Info] Running test set for epoch number 3 for dataset idx 6 using map
+[2024-07-06 11:05:06 Info] Stats for test [map] set of size 10000, loss is 6.402, acc is 13.8%
+[2024-07-06 11:05:06 Info] Running test set for epoch number 3 for dataset idx 7 using map
+[2024-07-06 11:05:11 Info] Stats for test [map] set of size 10000, loss is 6.4506, acc is 10.09%
+[2024-07-06 11:05:11 Info] Running test set for epoch number 3 for dataset idx 8 using map
+[2024-07-06 11:05:15 Info] Stats for test [map] set of size 10000, loss is 6.0299, acc is 10.01%
+[2024-07-06 11:05:15 Info] Running test set for epoch number 3 for dataset idx 9 using map
+[2024-07-06 11:05:17 Info] Stats for test [map] set of size 10000, loss is 5.9392, acc is 12.17%
+[2024-07-06 11:05:17 Info] Average accuracy over all tasks for epoch number 3 for dataset idx 9 using map is 44.218
+[2024-07-06 11:05:17 Info] Finished epoch number 3, Took 175 seconds
+[2024-07-06 11:05:17 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 11:05:17 Info] Training epoch number 3 with dataset number 0
+[2024-07-06 11:05:37 Info] Client id 4, Epoch 3, train set, Iter 500 current average loss 0.1467
+[2024-07-06 11:05:56 Info] Client id 4, Epoch 3, train set, Iter 1000 current average loss 0.1195
+[2024-07-06 11:06:11 Info] Client id 4, Epoch 3, train set, Iter 1500 current average loss 0.1052
+[2024-07-06 11:06:24 Info] Client id 4, Epoch 3, train set, Iter 2000 current average loss 0.0953
+[2024-07-06 11:06:36 Info] Client id 4, Epoch 3, train set, Iter 2500 current average loss 0.087
+[2024-07-06 11:06:56 Info] Client id 4, Epoch 3, train set, Iter 3000 current average loss 0.0796
+[2024-07-06 11:07:20 Info] Client id 4, Epoch 3, train set, Iter 3500 current average loss 0.0728
+[2024-07-06 11:07:38 Info] Client id 4, Epoch 3, train set, Iter 4000 current average loss 0.0667
+[2024-07-06 11:07:52 Info] Client id 4, Epoch 3, train set, Iter 4500 current average loss 0.0611
+[2024-07-06 11:08:00 Info] Stats for train set of size 600320, loss is 0.0592, acc is 0.0%
+[2024-07-06 11:08:00 Info] Running test set for epoch number 3 for dataset idx 0 using map
+[2024-07-06 11:08:01 Info] Stats for test [map] set of size 10000, loss is 0.4548, acc is 89.19%
+[2024-07-06 11:08:01 Info] Running test set for epoch number 3 for dataset idx 1 using map
+[2024-07-06 11:08:03 Info] Stats for test [map] set of size 10000, loss is 0.2086, acc is 94.87%
+[2024-07-06 11:08:03 Info] Running test set for epoch number 3 for dataset idx 2 using map
+[2024-07-06 11:08:05 Info] Stats for test [map] set of size 10000, loss is 0.1257, acc is 97.06%
+[2024-07-06 11:08:05 Info] Running test set for epoch number 3 for dataset idx 3 using map
+[2024-07-06 11:08:08 Info] Stats for test [map] set of size 10000, loss is 0.1381, acc is 96.63%
+[2024-07-06 11:08:08 Info] Running test set for epoch number 3 for dataset idx 4 using map
+[2024-07-06 11:08:10 Info] Stats for test [map] set of size 10000, loss is 6.1472, acc is 11.51%
+[2024-07-06 11:08:10 Info] Running test set for epoch number 3 for dataset idx 5 using map
+[2024-07-06 11:08:12 Info] Stats for test [map] set of size 10000, loss is 6.8911, acc is 10.77%
+[2024-07-06 11:08:12 Info] Running test set for epoch number 3 for dataset idx 6 using map
+[2024-07-06 11:08:14 Info] Stats for test [map] set of size 10000, loss is 6.2738, acc is 14.03%
+[2024-07-06 11:08:14 Info] Running test set for epoch number 3 for dataset idx 7 using map
+[2024-07-06 11:08:17 Info] Stats for test [map] set of size 10000, loss is 6.2234, acc is 11.45%
+[2024-07-06 11:08:17 Info] Running test set for epoch number 3 for dataset idx 8 using map
+[2024-07-06 11:08:20 Info] Stats for test [map] set of size 10000, loss is 6.3322, acc is 9.62%
+[2024-07-06 11:08:20 Info] Running test set for epoch number 3 for dataset idx 9 using map
+[2024-07-06 11:08:22 Info] Stats for test [map] set of size 10000, loss is 5.7302, acc is 13.23%
+[2024-07-06 11:08:22 Info] Average accuracy over all tasks for epoch number 3 for dataset idx 9 using map is 44.836
+[2024-07-06 11:08:22 Info] Finished epoch number 3, Took 185 seconds
+[2024-07-06 11:08:22 Info] Value of server model at round 3 is -1434.0909423828125
+[2024-07-06 11:08:28 Info] Task wise accuracies are [0.8562, 0.9436, 0.972]
+[2024-07-06 11:08:28 Info] Aggregated model avg acc and avg loss - 92.393,0.323998818156751
+[2024-07-06 11:08:28 Info] Round - 3 complete
+[2024-07-06 11:08:28 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 11:08:28 Info] Training epoch number 4 with dataset number 0
+[2024-07-06 11:08:49 Info] Client id 0, Epoch 4, train set, Iter 500 current average loss 0.1442
+[2024-07-06 11:09:09 Info] Client id 0, Epoch 4, train set, Iter 1000 current average loss 0.1173
+[2024-07-06 11:09:34 Info] Client id 0, Epoch 4, train set, Iter 1500 current average loss 0.1025
+[2024-07-06 11:09:59 Info] Client id 0, Epoch 4, train set, Iter 2000 current average loss 0.0919
+[2024-07-06 11:10:24 Info] Client id 0, Epoch 4, train set, Iter 2500 current average loss 0.0832
+[2024-07-06 11:10:42 Info] Client id 0, Epoch 4, train set, Iter 3000 current average loss 0.0757
+[2024-07-06 11:11:03 Info] Client id 0, Epoch 4, train set, Iter 3500 current average loss 0.069
+[2024-07-06 11:11:26 Info] Client id 0, Epoch 4, train set, Iter 4000 current average loss 0.0631
+[2024-07-06 11:11:40 Info] Client id 0, Epoch 4, train set, Iter 4500 current average loss 0.0578
+[2024-07-06 11:11:49 Info] Stats for train set of size 600320, loss is 0.056, acc is 0.0%
+[2024-07-06 11:11:49 Info] Running test set for epoch number 4 for dataset idx 0 using map
+[2024-07-06 11:11:50 Info] Stats for test [map] set of size 10000, loss is 1.0947, acc is 75.62%
+[2024-07-06 11:11:50 Info] Running test set for epoch number 4 for dataset idx 1 using map
+[2024-07-06 11:11:52 Info] Stats for test [map] set of size 10000, loss is 0.4811, acc is 89.03%
+[2024-07-06 11:11:52 Info] Running test set for epoch number 4 for dataset idx 2 using map
+[2024-07-06 11:11:55 Info] Stats for test [map] set of size 10000, loss is 0.2022, acc is 95.35%
+[2024-07-06 11:11:55 Info] Running test set for epoch number 4 for dataset idx 3 using map
+[2024-07-06 11:11:57 Info] Stats for test [map] set of size 10000, loss is 0.1222, acc is 97.24%
+[2024-07-06 11:11:57 Info] Running test set for epoch number 4 for dataset idx 4 using map
+[2024-07-06 11:12:00 Info] Stats for test [map] set of size 10000, loss is 0.154, acc is 96.29%
+[2024-07-06 11:12:00 Info] Running test set for epoch number 4 for dataset idx 5 using map
+[2024-07-06 11:12:02 Info] Stats for test [map] set of size 10000, loss is 7.2149, acc is 8.59%
+[2024-07-06 11:12:02 Info] Running test set for epoch number 4 for dataset idx 6 using map
+[2024-07-06 11:12:05 Info] Stats for test [map] set of size 10000, loss is 6.4635, acc is 11.45%
+[2024-07-06 11:12:05 Info] Running test set for epoch number 4 for dataset idx 7 using map
+[2024-07-06 11:12:07 Info] Stats for test [map] set of size 10000, loss is 8.5222, acc is 11.04%
+[2024-07-06 11:12:07 Info] Running test set for epoch number 4 for dataset idx 8 using map
+[2024-07-06 11:12:09 Info] Stats for test [map] set of size 10000, loss is 5.8621, acc is 10.18%
+[2024-07-06 11:12:09 Info] Running test set for epoch number 4 for dataset idx 9 using map
+[2024-07-06 11:12:11 Info] Stats for test [map] set of size 10000, loss is 6.4414, acc is 13.06%
+[2024-07-06 11:12:11 Info] Average accuracy over all tasks for epoch number 4 for dataset idx 9 using map is 50.785
+[2024-07-06 11:12:11 Info] Finished epoch number 4, Took 223 seconds
+[2024-07-06 11:12:11 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 11:12:11 Info] Training epoch number 4 with dataset number 0
+[2024-07-06 11:12:28 Info] Client id 1, Epoch 4, train set, Iter 500 current average loss 0.1434
+[2024-07-06 11:12:41 Info] Client id 1, Epoch 4, train set, Iter 1000 current average loss 0.1167
+[2024-07-06 11:12:54 Info] Client id 1, Epoch 4, train set, Iter 1500 current average loss 0.1026
+[2024-07-06 11:13:06 Info] Client id 1, Epoch 4, train set, Iter 2000 current average loss 0.0922
+[2024-07-06 11:13:27 Info] Client id 1, Epoch 4, train set, Iter 2500 current average loss 0.0845
+[2024-07-06 11:13:54 Info] Client id 1, Epoch 4, train set, Iter 3000 current average loss 0.0777
+[2024-07-06 11:14:17 Info] Client id 1, Epoch 4, train set, Iter 3500 current average loss 0.0716
+[2024-07-06 11:14:39 Info] Client id 1, Epoch 4, train set, Iter 4000 current average loss 0.0658
+[2024-07-06 11:15:00 Info] Client id 1, Epoch 4, train set, Iter 4500 current average loss 0.0605
+[2024-07-06 11:15:09 Info] Stats for train set of size 600320, loss is 0.0587, acc is 0.0%
+[2024-07-06 11:15:09 Info] Running test set for epoch number 4 for dataset idx 0 using map
+[2024-07-06 11:15:11 Info] Stats for test [map] set of size 10000, loss is 1.1621, acc is 74.1%
+[2024-07-06 11:15:11 Info] Running test set for epoch number 4 for dataset idx 1 using map
+[2024-07-06 11:15:14 Info] Stats for test [map] set of size 10000, loss is 0.6098, acc is 86.02%
+[2024-07-06 11:15:14 Info] Running test set for epoch number 4 for dataset idx 2 using map
+[2024-07-06 11:15:17 Info] Stats for test [map] set of size 10000, loss is 0.178, acc is 95.68%
+[2024-07-06 11:15:17 Info] Running test set for epoch number 4 for dataset idx 3 using map
+[2024-07-06 11:15:19 Info] Stats for test [map] set of size 10000, loss is 0.1317, acc is 97.1%
+[2024-07-06 11:15:19 Info] Running test set for epoch number 4 for dataset idx 4 using map
+[2024-07-06 11:15:21 Info] Stats for test [map] set of size 10000, loss is 0.1487, acc is 96.38%
+[2024-07-06 11:15:21 Info] Running test set for epoch number 4 for dataset idx 5 using map
+[2024-07-06 11:15:24 Info] Stats for test [map] set of size 10000, loss is 7.4139, acc is 9.54%
+[2024-07-06 11:15:24 Info] Running test set for epoch number 4 for dataset idx 6 using map
+[2024-07-06 11:15:26 Info] Stats for test [map] set of size 10000, loss is 7.736, acc is 9.41%
+[2024-07-06 11:15:26 Info] Running test set for epoch number 4 for dataset idx 7 using map
+[2024-07-06 11:15:28 Info] Stats for test [map] set of size 10000, loss is 8.052, acc is 9.85%
+[2024-07-06 11:15:28 Info] Running test set for epoch number 4 for dataset idx 8 using map
+[2024-07-06 11:15:30 Info] Stats for test [map] set of size 10000, loss is 5.9673, acc is 10.39%
+[2024-07-06 11:15:30 Info] Running test set for epoch number 4 for dataset idx 9 using map
+[2024-07-06 11:15:32 Info] Stats for test [map] set of size 10000, loss is 6.5992, acc is 13.34%
+[2024-07-06 11:15:32 Info] Average accuracy over all tasks for epoch number 4 for dataset idx 9 using map is 50.181
+[2024-07-06 11:15:32 Info] Finished epoch number 4, Took 200 seconds
+[2024-07-06 11:15:32 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 11:15:32 Info] Training epoch number 4 with dataset number 0
+[2024-07-06 11:16:00 Info] Client id 2, Epoch 4, train set, Iter 500 current average loss 0.1447
+[2024-07-06 11:16:13 Info] Client id 2, Epoch 4, train set, Iter 1000 current average loss 0.1175
+[2024-07-06 11:16:26 Info] Client id 2, Epoch 4, train set, Iter 1500 current average loss 0.1037
+[2024-07-06 11:16:39 Info] Client id 2, Epoch 4, train set, Iter 2000 current average loss 0.0938
+[2024-07-06 11:16:51 Info] Client id 2, Epoch 4, train set, Iter 2500 current average loss 0.0855
+[2024-07-06 11:17:11 Info] Client id 2, Epoch 4, train set, Iter 3000 current average loss 0.0781
+[2024-07-06 11:17:29 Info] Client id 2, Epoch 4, train set, Iter 3500 current average loss 0.0713
+[2024-07-06 11:17:46 Info] Client id 2, Epoch 4, train set, Iter 4000 current average loss 0.065
+[2024-07-06 11:18:02 Info] Client id 2, Epoch 4, train set, Iter 4500 current average loss 0.0595
+[2024-07-06 11:18:09 Info] Stats for train set of size 600320, loss is 0.0576, acc is 0.0%
+[2024-07-06 11:18:09 Info] Running test set for epoch number 4 for dataset idx 0 using map
+[2024-07-06 11:18:10 Info] Stats for test [map] set of size 10000, loss is 1.3736, acc is 71.7%
+[2024-07-06 11:18:10 Info] Running test set for epoch number 4 for dataset idx 1 using map
+[2024-07-06 11:18:13 Info] Stats for test [map] set of size 10000, loss is 0.528, acc is 88.23%
+[2024-07-06 11:18:13 Info] Running test set for epoch number 4 for dataset idx 2 using map
+[2024-07-06 11:18:15 Info] Stats for test [map] set of size 10000, loss is 0.1957, acc is 95.28%
+[2024-07-06 11:18:15 Info] Running test set for epoch number 4 for dataset idx 3 using map
+[2024-07-06 11:18:19 Info] Stats for test [map] set of size 10000, loss is 0.119, acc is 97.3%
+[2024-07-06 11:18:19 Info] Running test set for epoch number 4 for dataset idx 4 using map
+[2024-07-06 11:18:22 Info] Stats for test [map] set of size 10000, loss is 0.1333, acc is 96.54%
+[2024-07-06 11:18:22 Info] Running test set for epoch number 4 for dataset idx 5 using map
+[2024-07-06 11:18:27 Info] Stats for test [map] set of size 10000, loss is 7.2035, acc is 10.19%
+[2024-07-06 11:18:27 Info] Running test set for epoch number 4 for dataset idx 6 using map
+[2024-07-06 11:18:29 Info] Stats for test [map] set of size 10000, loss is 7.173, acc is 9.63%
+[2024-07-06 11:18:29 Info] Running test set for epoch number 4 for dataset idx 7 using map
+[2024-07-06 11:18:32 Info] Stats for test [map] set of size 10000, loss is 7.8899, acc is 11.44%
+[2024-07-06 11:18:32 Info] Running test set for epoch number 4 for dataset idx 8 using map
+[2024-07-06 11:18:34 Info] Stats for test [map] set of size 10000, loss is 6.0705, acc is 8.72%
+[2024-07-06 11:18:34 Info] Running test set for epoch number 4 for dataset idx 9 using map
+[2024-07-06 11:18:36 Info] Stats for test [map] set of size 10000, loss is 6.1488, acc is 13.12%
+[2024-07-06 11:18:36 Info] Average accuracy over all tasks for epoch number 4 for dataset idx 9 using map is 50.215
+[2024-07-06 11:18:36 Info] Finished epoch number 4, Took 184 seconds
+[2024-07-06 11:18:36 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 11:18:36 Info] Training epoch number 4 with dataset number 0
+[2024-07-06 11:19:02 Info] Client id 3, Epoch 4, train set, Iter 500 current average loss 0.1438
+[2024-07-06 11:19:31 Info] Client id 3, Epoch 4, train set, Iter 1000 current average loss 0.1173
+[2024-07-06 11:19:50 Info] Client id 3, Epoch 4, train set, Iter 1500 current average loss 0.1049
+[2024-07-06 11:20:07 Info] Client id 3, Epoch 4, train set, Iter 2000 current average loss 0.0946
+[2024-07-06 11:20:30 Info] Client id 3, Epoch 4, train set, Iter 2500 current average loss 0.0864
+[2024-07-06 11:20:51 Info] Client id 3, Epoch 4, train set, Iter 3000 current average loss 0.0793
+[2024-07-06 11:21:08 Info] Client id 3, Epoch 4, train set, Iter 3500 current average loss 0.0726
+[2024-07-06 11:21:31 Info] Client id 3, Epoch 4, train set, Iter 4000 current average loss 0.0665
+[2024-07-06 11:21:57 Info] Client id 3, Epoch 4, train set, Iter 4500 current average loss 0.0611
+[2024-07-06 11:22:09 Info] Stats for train set of size 600320, loss is 0.0591, acc is 0.0%
+[2024-07-06 11:22:09 Info] Running test set for epoch number 4 for dataset idx 0 using map
+[2024-07-06 11:22:10 Info] Stats for test [map] set of size 10000, loss is 1.1633, acc is 74.78%
+[2024-07-06 11:22:10 Info] Running test set for epoch number 4 for dataset idx 1 using map
+[2024-07-06 11:22:12 Info] Stats for test [map] set of size 10000, loss is 0.541, acc is 87.63%
+[2024-07-06 11:22:12 Info] Running test set for epoch number 4 for dataset idx 2 using map
+[2024-07-06 11:22:17 Info] Stats for test [map] set of size 10000, loss is 0.21, acc is 94.83%
+[2024-07-06 11:22:17 Info] Running test set for epoch number 4 for dataset idx 3 using map
+[2024-07-06 11:22:21 Info] Stats for test [map] set of size 10000, loss is 0.1356, acc is 97.14%
+[2024-07-06 11:22:21 Info] Running test set for epoch number 4 for dataset idx 4 using map
+[2024-07-06 11:22:26 Info] Stats for test [map] set of size 10000, loss is 0.1572, acc is 96.24%
+[2024-07-06 11:22:26 Info] Running test set for epoch number 4 for dataset idx 5 using map
+[2024-07-06 11:22:28 Info] Stats for test [map] set of size 10000, loss is 7.3712, acc is 10.2%
+[2024-07-06 11:22:28 Info] Running test set for epoch number 4 for dataset idx 6 using map
+[2024-07-06 11:22:30 Info] Stats for test [map] set of size 10000, loss is 6.3801, acc is 10.8%
+[2024-07-06 11:22:30 Info] Running test set for epoch number 4 for dataset idx 7 using map
+[2024-07-06 11:22:32 Info] Stats for test [map] set of size 10000, loss is 8.381, acc is 9.55%
+[2024-07-06 11:22:32 Info] Running test set for epoch number 4 for dataset idx 8 using map
+[2024-07-06 11:22:34 Info] Stats for test [map] set of size 10000, loss is 5.3808, acc is 11.54%
+[2024-07-06 11:22:34 Info] Running test set for epoch number 4 for dataset idx 9 using map
+[2024-07-06 11:22:36 Info] Stats for test [map] set of size 10000, loss is 6.1568, acc is 11.93%
+[2024-07-06 11:22:36 Info] Average accuracy over all tasks for epoch number 4 for dataset idx 9 using map is 50.464
+[2024-07-06 11:22:36 Info] Finished epoch number 4, Took 240 seconds
+[2024-07-06 11:22:36 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 11:22:36 Info] Training epoch number 4 with dataset number 0
+[2024-07-06 11:22:53 Info] Client id 4, Epoch 4, train set, Iter 500 current average loss 0.1525
+[2024-07-06 11:23:10 Info] Client id 4, Epoch 4, train set, Iter 1000 current average loss 0.1231
+[2024-07-06 11:23:36 Info] Client id 4, Epoch 4, train set, Iter 1500 current average loss 0.1075
+[2024-07-06 11:23:57 Info] Client id 4, Epoch 4, train set, Iter 2000 current average loss 0.0977
+[2024-07-06 11:24:12 Info] Client id 4, Epoch 4, train set, Iter 2500 current average loss 0.0888
+[2024-07-06 11:24:24 Info] Client id 4, Epoch 4, train set, Iter 3000 current average loss 0.0813
+[2024-07-06 11:24:36 Info] Client id 4, Epoch 4, train set, Iter 3500 current average loss 0.0743
+[2024-07-06 11:24:51 Info] Client id 4, Epoch 4, train set, Iter 4000 current average loss 0.0682
+[2024-07-06 11:25:14 Info] Client id 4, Epoch 4, train set, Iter 4500 current average loss 0.0625
+[2024-07-06 11:25:20 Info] Stats for train set of size 600320, loss is 0.0605, acc is 0.0%
+[2024-07-06 11:25:20 Info] Running test set for epoch number 4 for dataset idx 0 using map
+[2024-07-06 11:25:21 Info] Stats for test [map] set of size 10000, loss is 1.2921, acc is 73.19%
+[2024-07-06 11:25:21 Info] Running test set for epoch number 4 for dataset idx 1 using map
+[2024-07-06 11:25:24 Info] Stats for test [map] set of size 10000, loss is 0.5561, acc is 87.7%
+[2024-07-06 11:25:24 Info] Running test set for epoch number 4 for dataset idx 2 using map
+[2024-07-06 11:25:28 Info] Stats for test [map] set of size 10000, loss is 0.2077, acc is 94.65%
+[2024-07-06 11:25:28 Info] Running test set for epoch number 4 for dataset idx 3 using map
+[2024-07-06 11:25:32 Info] Stats for test [map] set of size 10000, loss is 0.1248, acc is 97.2%
+[2024-07-06 11:25:32 Info] Running test set for epoch number 4 for dataset idx 4 using map
+[2024-07-06 11:25:37 Info] Stats for test [map] set of size 10000, loss is 0.1432, acc is 96.38%
+[2024-07-06 11:25:37 Info] Running test set for epoch number 4 for dataset idx 5 using map
+[2024-07-06 11:25:41 Info] Stats for test [map] set of size 10000, loss is 7.5168, acc is 8.79%
+[2024-07-06 11:25:41 Info] Running test set for epoch number 4 for dataset idx 6 using map
+[2024-07-06 11:25:45 Info] Stats for test [map] set of size 10000, loss is 7.2182, acc is 9.72%
+[2024-07-06 11:25:45 Info] Running test set for epoch number 4 for dataset idx 7 using map
+[2024-07-06 11:25:47 Info] Stats for test [map] set of size 10000, loss is 8.2573, acc is 11.29%
+[2024-07-06 11:25:47 Info] Running test set for epoch number 4 for dataset idx 8 using map
+[2024-07-06 11:25:49 Info] Stats for test [map] set of size 10000, loss is 5.5975, acc is 9.98%
+[2024-07-06 11:25:49 Info] Running test set for epoch number 4 for dataset idx 9 using map
+[2024-07-06 11:25:51 Info] Stats for test [map] set of size 10000, loss is 6.8825, acc is 9.94%
+[2024-07-06 11:25:51 Info] Average accuracy over all tasks for epoch number 4 for dataset idx 9 using map is 49.884
+[2024-07-06 11:25:51 Info] Finished epoch number 4, Took 194 seconds
+[2024-07-06 11:25:51 Info] Value of server model at round 4 is -1719.788330078125
+[2024-07-06 11:26:05 Info] Task wise accuracies are [0.7417, 0.8561, 0.943, 0.9697]
+[2024-07-06 11:26:05 Info] Aggregated model avg acc and avg loss - 87.763,0.57746910857926
+[2024-07-06 11:26:05 Info] Round - 4 complete
+[2024-07-06 11:26:05 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 11:26:05 Info] Training epoch number 5 with dataset number 0
+[2024-07-06 11:26:35 Info] Client id 0, Epoch 5, train set, Iter 500 current average loss 0.1378
+[2024-07-06 11:27:02 Info] Client id 0, Epoch 5, train set, Iter 1000 current average loss 0.1134
+[2024-07-06 11:27:20 Info] Client id 0, Epoch 5, train set, Iter 1500 current average loss 0.0999
+[2024-07-06 11:27:43 Info] Client id 0, Epoch 5, train set, Iter 2000 current average loss 0.0901
+[2024-07-06 11:27:57 Info] Client id 0, Epoch 5, train set, Iter 2500 current average loss 0.082
+[2024-07-06 11:28:21 Info] Client id 0, Epoch 5, train set, Iter 3000 current average loss 0.075
+[2024-07-06 11:28:40 Info] Client id 0, Epoch 5, train set, Iter 3500 current average loss 0.0687
+[2024-07-06 11:29:04 Info] Client id 0, Epoch 5, train set, Iter 4000 current average loss 0.0629
+[2024-07-06 11:29:31 Info] Client id 0, Epoch 5, train set, Iter 4500 current average loss 0.0578
+[2024-07-06 11:29:42 Info] Stats for train set of size 600320, loss is 0.056, acc is 0.0%
+[2024-07-06 11:29:42 Info] Running test set for epoch number 5 for dataset idx 0 using map
+[2024-07-06 11:29:43 Info] Stats for test [map] set of size 10000, loss is 1.5154, acc is 69.11%
+[2024-07-06 11:29:43 Info] Running test set for epoch number 5 for dataset idx 1 using map
+[2024-07-06 11:29:46 Info] Stats for test [map] set of size 10000, loss is 0.9567, acc is 78.91%
+[2024-07-06 11:29:46 Info] Running test set for epoch number 5 for dataset idx 2 using map
+[2024-07-06 11:29:49 Info] Stats for test [map] set of size 10000, loss is 0.5491, acc is 86.29%
+[2024-07-06 11:29:49 Info] Running test set for epoch number 5 for dataset idx 3 using map
+[2024-07-06 11:29:51 Info] Stats for test [map] set of size 10000, loss is 0.1943, acc is 95.4%
+[2024-07-06 11:29:51 Info] Running test set for epoch number 5 for dataset idx 4 using map
+[2024-07-06 11:29:53 Info] Stats for test [map] set of size 10000, loss is 0.1502, acc is 97.0%
+[2024-07-06 11:29:53 Info] Running test set for epoch number 5 for dataset idx 5 using map
+[2024-07-06 11:29:56 Info] Stats for test [map] set of size 10000, loss is 0.1413, acc is 96.56%
+[2024-07-06 11:29:56 Info] Running test set for epoch number 5 for dataset idx 6 using map
+[2024-07-06 11:29:58 Info] Stats for test [map] set of size 10000, loss is 6.6077, acc is 14.26%
+[2024-07-06 11:29:58 Info] Running test set for epoch number 5 for dataset idx 7 using map
+[2024-07-06 11:30:00 Info] Stats for test [map] set of size 10000, loss is 8.0637, acc is 11.32%
+[2024-07-06 11:30:00 Info] Running test set for epoch number 5 for dataset idx 8 using map
+[2024-07-06 11:30:03 Info] Stats for test [map] set of size 10000, loss is 6.7058, acc is 13.3%
+[2024-07-06 11:30:03 Info] Running test set for epoch number 5 for dataset idx 9 using map
+[2024-07-06 11:30:05 Info] Stats for test [map] set of size 10000, loss is 7.1673, acc is 10.4%
+[2024-07-06 11:30:05 Info] Average accuracy over all tasks for epoch number 5 for dataset idx 9 using map is 57.255
+[2024-07-06 11:30:06 Info] Finished epoch number 5, Took 240 seconds
+[2024-07-06 11:30:06 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 11:30:06 Info] Training epoch number 5 with dataset number 0
+[2024-07-06 11:30:27 Info] Client id 1, Epoch 5, train set, Iter 500 current average loss 0.1449
+[2024-07-06 11:30:49 Info] Client id 1, Epoch 5, train set, Iter 1000 current average loss 0.1186
+[2024-07-06 11:31:14 Info] Client id 1, Epoch 5, train set, Iter 1500 current average loss 0.103
+[2024-07-06 11:31:32 Info] Client id 1, Epoch 5, train set, Iter 2000 current average loss 0.0925
+[2024-07-06 11:31:44 Info] Client id 1, Epoch 5, train set, Iter 2500 current average loss 0.0838
+[2024-07-06 11:32:03 Info] Client id 1, Epoch 5, train set, Iter 3000 current average loss 0.0758
+[2024-07-06 11:32:29 Info] Client id 1, Epoch 5, train set, Iter 3500 current average loss 0.0691
+[2024-07-06 11:32:47 Info] Client id 1, Epoch 5, train set, Iter 4000 current average loss 0.063
+[2024-07-06 11:33:03 Info] Client id 1, Epoch 5, train set, Iter 4500 current average loss 0.0576
+[2024-07-06 11:33:14 Info] Stats for train set of size 600320, loss is 0.0557, acc is 0.0%
+[2024-07-06 11:33:14 Info] Running test set for epoch number 5 for dataset idx 0 using map
+[2024-07-06 11:33:15 Info] Stats for test [map] set of size 10000, loss is 1.5251, acc is 67.68%
+[2024-07-06 11:33:15 Info] Running test set for epoch number 5 for dataset idx 1 using map
+[2024-07-06 11:33:17 Info] Stats for test [map] set of size 10000, loss is 0.9961, acc is 78.78%
+[2024-07-06 11:33:17 Info] Running test set for epoch number 5 for dataset idx 2 using map
+[2024-07-06 11:33:19 Info] Stats for test [map] set of size 10000, loss is 0.4917, acc is 87.63%
+[2024-07-06 11:33:19 Info] Running test set for epoch number 5 for dataset idx 3 using map
+[2024-07-06 11:33:21 Info] Stats for test [map] set of size 10000, loss is 0.2067, acc is 95.2%
+[2024-07-06 11:33:21 Info] Running test set for epoch number 5 for dataset idx 4 using map
+[2024-07-06 11:33:23 Info] Stats for test [map] set of size 10000, loss is 0.138, acc is 97.04%
+[2024-07-06 11:33:23 Info] Running test set for epoch number 5 for dataset idx 5 using map
+[2024-07-06 11:33:25 Info] Stats for test [map] set of size 10000, loss is 0.1426, acc is 96.53%
+[2024-07-06 11:33:25 Info] Running test set for epoch number 5 for dataset idx 6 using map
+[2024-07-06 11:33:29 Info] Stats for test [map] set of size 10000, loss is 6.6038, acc is 14.97%
+[2024-07-06 11:33:29 Info] Running test set for epoch number 5 for dataset idx 7 using map
+[2024-07-06 11:33:31 Info] Stats for test [map] set of size 10000, loss is 8.269, acc is 11.01%
+[2024-07-06 11:33:31 Info] Running test set for epoch number 5 for dataset idx 8 using map
+[2024-07-06 11:33:33 Info] Stats for test [map] set of size 10000, loss is 7.1556, acc is 12.02%
+[2024-07-06 11:33:33 Info] Running test set for epoch number 5 for dataset idx 9 using map
+[2024-07-06 11:33:36 Info] Stats for test [map] set of size 10000, loss is 6.8275, acc is 10.42%
+[2024-07-06 11:33:36 Info] Average accuracy over all tasks for epoch number 5 for dataset idx 9 using map is 57.128
+[2024-07-06 11:33:36 Info] Finished epoch number 5, Took 210 seconds
+[2024-07-06 11:33:36 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 11:33:36 Info] Training epoch number 5 with dataset number 0
+[2024-07-06 11:34:02 Info] Client id 2, Epoch 5, train set, Iter 500 current average loss 0.1442
+[2024-07-06 11:34:27 Info] Client id 2, Epoch 5, train set, Iter 1000 current average loss 0.1178
+[2024-07-06 11:34:51 Info] Client id 2, Epoch 5, train set, Iter 1500 current average loss 0.1037
+[2024-07-06 11:35:06 Info] Client id 2, Epoch 5, train set, Iter 2000 current average loss 0.0943
+[2024-07-06 11:35:30 Info] Client id 2, Epoch 5, train set, Iter 2500 current average loss 0.0858
+[2024-07-06 11:35:50 Info] Client id 2, Epoch 5, train set, Iter 3000 current average loss 0.0783
+[2024-07-06 11:36:08 Info] Client id 2, Epoch 5, train set, Iter 3500 current average loss 0.0714
+[2024-07-06 11:36:28 Info] Client id 2, Epoch 5, train set, Iter 4000 current average loss 0.0653
+[2024-07-06 11:36:47 Info] Client id 2, Epoch 5, train set, Iter 4500 current average loss 0.0598
+[2024-07-06 11:36:53 Info] Stats for train set of size 600320, loss is 0.0579, acc is 0.0%
+[2024-07-06 11:36:53 Info] Running test set for epoch number 5 for dataset idx 0 using map
+[2024-07-06 11:36:54 Info] Stats for test [map] set of size 10000, loss is 1.8073, acc is 63.16%
+[2024-07-06 11:36:54 Info] Running test set for epoch number 5 for dataset idx 1 using map
+[2024-07-06 11:36:56 Info] Stats for test [map] set of size 10000, loss is 1.1781, acc is 75.09%
+[2024-07-06 11:36:56 Info] Running test set for epoch number 5 for dataset idx 2 using map
+[2024-07-06 11:36:59 Info] Stats for test [map] set of size 10000, loss is 0.623, acc is 84.58%
+[2024-07-06 11:36:59 Info] Running test set for epoch number 5 for dataset idx 3 using map
+[2024-07-06 11:37:02 Info] Stats for test [map] set of size 10000, loss is 0.2216, acc is 94.96%
+[2024-07-06 11:37:02 Info] Running test set for epoch number 5 for dataset idx 4 using map
+[2024-07-06 11:37:05 Info] Stats for test [map] set of size 10000, loss is 0.128, acc is 97.16%
+[2024-07-06 11:37:05 Info] Running test set for epoch number 5 for dataset idx 5 using map
+[2024-07-06 11:37:09 Info] Stats for test [map] set of size 10000, loss is 0.1563, acc is 96.27%
+[2024-07-06 11:37:09 Info] Running test set for epoch number 5 for dataset idx 6 using map
+[2024-07-06 11:37:12 Info] Stats for test [map] set of size 10000, loss is 6.6629, acc is 12.48%
+[2024-07-06 11:37:12 Info] Running test set for epoch number 5 for dataset idx 7 using map
+[2024-07-06 11:37:17 Info] Stats for test [map] set of size 10000, loss is 7.7435, acc is 11.48%
+[2024-07-06 11:37:17 Info] Running test set for epoch number 5 for dataset idx 8 using map
+[2024-07-06 11:37:20 Info] Stats for test [map] set of size 10000, loss is 7.3605, acc is 10.79%
+[2024-07-06 11:37:20 Info] Running test set for epoch number 5 for dataset idx 9 using map
+[2024-07-06 11:37:22 Info] Stats for test [map] set of size 10000, loss is 6.4193, acc is 9.85%
+[2024-07-06 11:37:22 Info] Average accuracy over all tasks for epoch number 5 for dataset idx 9 using map is 55.582
+[2024-07-06 11:37:22 Info] Finished epoch number 5, Took 226 seconds
+[2024-07-06 11:37:22 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 11:37:22 Info] Training epoch number 5 with dataset number 0
+[2024-07-06 11:37:49 Info] Client id 3, Epoch 5, train set, Iter 500 current average loss 0.1471
+[2024-07-06 11:38:15 Info] Client id 3, Epoch 5, train set, Iter 1000 current average loss 0.1219
+[2024-07-06 11:38:36 Info] Client id 3, Epoch 5, train set, Iter 1500 current average loss 0.1084
+[2024-07-06 11:39:00 Info] Client id 3, Epoch 5, train set, Iter 2000 current average loss 0.0992
+[2024-07-06 11:39:19 Info] Client id 3, Epoch 5, train set, Iter 2500 current average loss 0.0909
+[2024-07-06 11:39:39 Info] Client id 3, Epoch 5, train set, Iter 3000 current average loss 0.0833
+[2024-07-06 11:40:02 Info] Client id 3, Epoch 5, train set, Iter 3500 current average loss 0.0766
+[2024-07-06 11:40:18 Info] Client id 3, Epoch 5, train set, Iter 4000 current average loss 0.0705
+[2024-07-06 11:40:29 Info] Client id 3, Epoch 5, train set, Iter 4500 current average loss 0.065
+[2024-07-06 11:40:34 Info] Stats for train set of size 600320, loss is 0.0631, acc is 0.0%
+[2024-07-06 11:40:34 Info] Running test set for epoch number 5 for dataset idx 0 using map
+[2024-07-06 11:40:35 Info] Stats for test [map] set of size 10000, loss is 1.5219, acc is 66.29%
+[2024-07-06 11:40:35 Info] Running test set for epoch number 5 for dataset idx 1 using map
+[2024-07-06 11:40:37 Info] Stats for test [map] set of size 10000, loss is 1.0933, acc is 76.15%
+[2024-07-06 11:40:37 Info] Running test set for epoch number 5 for dataset idx 2 using map
+[2024-07-06 11:40:39 Info] Stats for test [map] set of size 10000, loss is 0.6752, acc is 83.34%
+[2024-07-06 11:40:39 Info] Running test set for epoch number 5 for dataset idx 3 using map
+[2024-07-06 11:40:42 Info] Stats for test [map] set of size 10000, loss is 0.1884, acc is 95.38%
+[2024-07-06 11:40:42 Info] Running test set for epoch number 5 for dataset idx 4 using map
+[2024-07-06 11:40:44 Info] Stats for test [map] set of size 10000, loss is 0.1286, acc is 96.91%
+[2024-07-06 11:40:44 Info] Running test set for epoch number 5 for dataset idx 5 using map
+[2024-07-06 11:40:47 Info] Stats for test [map] set of size 10000, loss is 0.1415, acc is 96.36%
+[2024-07-06 11:40:47 Info] Running test set for epoch number 5 for dataset idx 6 using map
+[2024-07-06 11:40:49 Info] Stats for test [map] set of size 10000, loss is 6.7457, acc is 11.15%
+[2024-07-06 11:40:49 Info] Running test set for epoch number 5 for dataset idx 7 using map
+[2024-07-06 11:40:53 Info] Stats for test [map] set of size 10000, loss is 8.227, acc is 11.82%
+[2024-07-06 11:40:53 Info] Running test set for epoch number 5 for dataset idx 8 using map
+[2024-07-06 11:40:55 Info] Stats for test [map] set of size 10000, loss is 7.8228, acc is 12.29%
+[2024-07-06 11:40:55 Info] Running test set for epoch number 5 for dataset idx 9 using map
+[2024-07-06 11:40:57 Info] Stats for test [map] set of size 10000, loss is 7.1628, acc is 10.97%
+[2024-07-06 11:40:57 Info] Average accuracy over all tasks for epoch number 5 for dataset idx 9 using map is 56.066
+[2024-07-06 11:40:57 Info] Finished epoch number 5, Took 215 seconds
+[2024-07-06 11:40:57 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 11:40:57 Info] Training epoch number 5 with dataset number 0
+[2024-07-06 11:41:13 Info] Client id 4, Epoch 5, train set, Iter 500 current average loss 0.1512
+[2024-07-06 11:41:25 Info] Client id 4, Epoch 5, train set, Iter 1000 current average loss 0.1217
+[2024-07-06 11:41:37 Info] Client id 4, Epoch 5, train set, Iter 1500 current average loss 0.1059
+[2024-07-06 11:41:50 Info] Client id 4, Epoch 5, train set, Iter 2000 current average loss 0.0961
+[2024-07-06 11:42:09 Info] Client id 4, Epoch 5, train set, Iter 2500 current average loss 0.0877
+[2024-07-06 11:42:30 Info] Client id 4, Epoch 5, train set, Iter 3000 current average loss 0.0802
+[2024-07-06 11:42:50 Info] Client id 4, Epoch 5, train set, Iter 3500 current average loss 0.0737
+[2024-07-06 11:43:06 Info] Client id 4, Epoch 5, train set, Iter 4000 current average loss 0.0676
+[2024-07-06 11:43:28 Info] Client id 4, Epoch 5, train set, Iter 4500 current average loss 0.062
+[2024-07-06 11:43:36 Info] Stats for train set of size 600320, loss is 0.0601, acc is 0.0%
+[2024-07-06 11:43:36 Info] Running test set for epoch number 5 for dataset idx 0 using map
+[2024-07-06 11:43:37 Info] Stats for test [map] set of size 10000, loss is 1.4295, acc is 68.15%
+[2024-07-06 11:43:37 Info] Running test set for epoch number 5 for dataset idx 1 using map
+[2024-07-06 11:43:41 Info] Stats for test [map] set of size 10000, loss is 0.9789, acc is 78.41%
+[2024-07-06 11:43:41 Info] Running test set for epoch number 5 for dataset idx 2 using map
+[2024-07-06 11:43:44 Info] Stats for test [map] set of size 10000, loss is 0.6666, acc is 83.3%
+[2024-07-06 11:43:44 Info] Running test set for epoch number 5 for dataset idx 3 using map
+[2024-07-06 11:43:48 Info] Stats for test [map] set of size 10000, loss is 0.2577, acc is 94.18%
+[2024-07-06 11:43:48 Info] Running test set for epoch number 5 for dataset idx 4 using map
+[2024-07-06 11:43:50 Info] Stats for test [map] set of size 10000, loss is 0.1287, acc is 97.14%
+[2024-07-06 11:43:50 Info] Running test set for epoch number 5 for dataset idx 5 using map
+[2024-07-06 11:43:53 Info] Stats for test [map] set of size 10000, loss is 0.1416, acc is 96.37%
+[2024-07-06 11:43:53 Info] Running test set for epoch number 5 for dataset idx 6 using map
+[2024-07-06 11:43:55 Info] Stats for test [map] set of size 10000, loss is 6.5465, acc is 13.7%
+[2024-07-06 11:43:55 Info] Running test set for epoch number 5 for dataset idx 7 using map
+[2024-07-06 11:43:57 Info] Stats for test [map] set of size 10000, loss is 7.5168, acc is 11.15%
+[2024-07-06 11:43:57 Info] Running test set for epoch number 5 for dataset idx 8 using map
+[2024-07-06 11:43:59 Info] Stats for test [map] set of size 10000, loss is 6.4476, acc is 12.44%
+[2024-07-06 11:43:59 Info] Running test set for epoch number 5 for dataset idx 9 using map
+[2024-07-06 11:44:02 Info] Stats for test [map] set of size 10000, loss is 6.4551, acc is 9.65%
+[2024-07-06 11:44:02 Info] Average accuracy over all tasks for epoch number 5 for dataset idx 9 using map is 56.449
+[2024-07-06 11:44:02 Info] Finished epoch number 5, Took 185 seconds
+[2024-07-06 11:44:02 Info] Value of server model at round 5 is -1915.3775634765625
+[2024-07-06 11:44:17 Info] Task wise accuracies are [0.6456, 0.7392, 0.7659, 0.9444, 0.9704]
+[2024-07-06 11:44:17 Info] Aggregated model avg acc and avg loss - 81.31,0.9132249349653717
+[2024-07-06 11:44:17 Info] Round - 5 complete
+[2024-07-06 11:44:17 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 11:44:17 Info] Training epoch number 6 with dataset number 0
+[2024-07-06 11:44:44 Info] Client id 0, Epoch 6, train set, Iter 500 current average loss 0.153
+[2024-07-06 11:45:04 Info] Client id 0, Epoch 6, train set, Iter 1000 current average loss 0.1256
+[2024-07-06 11:45:22 Info] Client id 0, Epoch 6, train set, Iter 1500 current average loss 0.1091
+[2024-07-06 11:45:44 Info] Client id 0, Epoch 6, train set, Iter 2000 current average loss 0.0986
+[2024-07-06 11:46:10 Info] Client id 0, Epoch 6, train set, Iter 2500 current average loss 0.0899
+[2024-07-06 11:46:28 Info] Client id 0, Epoch 6, train set, Iter 3000 current average loss 0.0821
+[2024-07-06 11:46:46 Info] Client id 0, Epoch 6, train set, Iter 3500 current average loss 0.0752
+[2024-07-06 11:47:07 Info] Client id 0, Epoch 6, train set, Iter 4000 current average loss 0.0688
+[2024-07-06 11:47:29 Info] Client id 0, Epoch 6, train set, Iter 4500 current average loss 0.0632
+[2024-07-06 11:47:38 Info] Stats for train set of size 600320, loss is 0.0612, acc is 0.0%
+[2024-07-06 11:47:38 Info] Running test set for epoch number 6 for dataset idx 0 using map
+[2024-07-06 11:47:40 Info] Stats for test [map] set of size 10000, loss is 2.1564, acc is 56.43%
+[2024-07-06 11:47:40 Info] Running test set for epoch number 6 for dataset idx 1 using map
+[2024-07-06 11:47:45 Info] Stats for test [map] set of size 10000, loss is 1.5767, acc is 65.62%
+[2024-07-06 11:47:45 Info] Running test set for epoch number 6 for dataset idx 2 using map
+[2024-07-06 11:47:49 Info] Stats for test [map] set of size 10000, loss is 1.3281, acc is 69.34%
+[2024-07-06 11:47:49 Info] Running test set for epoch number 6 for dataset idx 3 using map
+[2024-07-06 11:47:53 Info] Stats for test [map] set of size 10000, loss is 0.5872, acc is 85.47%
+[2024-07-06 11:47:53 Info] Running test set for epoch number 6 for dataset idx 4 using map
+[2024-07-06 11:47:55 Info] Stats for test [map] set of size 10000, loss is 0.2172, acc is 94.26%
+[2024-07-06 11:47:55 Info] Running test set for epoch number 6 for dataset idx 5 using map
+[2024-07-06 11:47:57 Info] Stats for test [map] set of size 10000, loss is 0.138, acc is 97.1%
+[2024-07-06 11:47:57 Info] Running test set for epoch number 6 for dataset idx 6 using map
+[2024-07-06 11:48:00 Info] Stats for test [map] set of size 10000, loss is 0.1495, acc is 96.29%
+[2024-07-06 11:48:00 Info] Running test set for epoch number 6 for dataset idx 7 using map
+[2024-07-06 11:48:03 Info] Stats for test [map] set of size 10000, loss is 6.9638, acc is 14.08%
+[2024-07-06 11:48:03 Info] Running test set for epoch number 6 for dataset idx 8 using map
+[2024-07-06 11:48:05 Info] Stats for test [map] set of size 10000, loss is 6.9996, acc is 8.3%
+[2024-07-06 11:48:05 Info] Running test set for epoch number 6 for dataset idx 9 using map
+[2024-07-06 11:48:07 Info] Stats for test [map] set of size 10000, loss is 7.2606, acc is 10.5%
+[2024-07-06 11:48:07 Info] Average accuracy over all tasks for epoch number 6 for dataset idx 9 using map is 59.739
+[2024-07-06 11:48:07 Info] Finished epoch number 6, Took 230 seconds
+[2024-07-06 11:48:07 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 11:48:07 Info] Training epoch number 6 with dataset number 0
+[2024-07-06 11:48:24 Info] Client id 1, Epoch 6, train set, Iter 500 current average loss 0.1435
+[2024-07-06 11:48:41 Info] Client id 1, Epoch 6, train set, Iter 1000 current average loss 0.1203
+[2024-07-06 11:49:02 Info] Client id 1, Epoch 6, train set, Iter 1500 current average loss 0.1065
+[2024-07-06 11:49:25 Info] Client id 1, Epoch 6, train set, Iter 2000 current average loss 0.0974
+[2024-07-06 11:49:47 Info] Client id 1, Epoch 6, train set, Iter 2500 current average loss 0.0897
+[2024-07-06 11:50:10 Info] Client id 1, Epoch 6, train set, Iter 3000 current average loss 0.0827
+[2024-07-06 11:50:36 Info] Client id 1, Epoch 6, train set, Iter 3500 current average loss 0.076
+[2024-07-06 11:50:59 Info] Client id 1, Epoch 6, train set, Iter 4000 current average loss 0.0699
+[2024-07-06 11:51:20 Info] Client id 1, Epoch 6, train set, Iter 4500 current average loss 0.0642
+[2024-07-06 11:51:30 Info] Stats for train set of size 600320, loss is 0.0623, acc is 0.0%
+[2024-07-06 11:51:30 Info] Running test set for epoch number 6 for dataset idx 0 using map
+[2024-07-06 11:51:31 Info] Stats for test [map] set of size 10000, loss is 2.4543, acc is 50.4%
+[2024-07-06 11:51:31 Info] Running test set for epoch number 6 for dataset idx 1 using map
+[2024-07-06 11:51:33 Info] Stats for test [map] set of size 10000, loss is 2.0508, acc is 56.91%
+[2024-07-06 11:51:33 Info] Running test set for epoch number 6 for dataset idx 2 using map
+[2024-07-06 11:51:36 Info] Stats for test [map] set of size 10000, loss is 2.0379, acc is 58.54%
+[2024-07-06 11:51:36 Info] Running test set for epoch number 6 for dataset idx 3 using map
+[2024-07-06 11:51:40 Info] Stats for test [map] set of size 10000, loss is 0.5493, acc is 86.79%
+[2024-07-06 11:51:40 Info] Running test set for epoch number 6 for dataset idx 4 using map
+[2024-07-06 11:51:44 Info] Stats for test [map] set of size 10000, loss is 0.2602, acc is 92.99%
+[2024-07-06 11:51:44 Info] Running test set for epoch number 6 for dataset idx 5 using map
+[2024-07-06 11:51:46 Info] Stats for test [map] set of size 10000, loss is 0.1429, acc is 97.13%
+[2024-07-06 11:51:46 Info] Running test set for epoch number 6 for dataset idx 6 using map
+[2024-07-06 11:51:48 Info] Stats for test [map] set of size 10000, loss is 0.1556, acc is 96.26%
+[2024-07-06 11:51:48 Info] Running test set for epoch number 6 for dataset idx 7 using map
+[2024-07-06 11:51:51 Info] Stats for test [map] set of size 10000, loss is 7.4522, acc is 15.14%
+[2024-07-06 11:51:51 Info] Running test set for epoch number 6 for dataset idx 8 using map
+[2024-07-06 11:51:56 Info] Stats for test [map] set of size 10000, loss is 6.8388, acc is 10.22%
+[2024-07-06 11:51:56 Info] Running test set for epoch number 6 for dataset idx 9 using map
+[2024-07-06 11:52:00 Info] Stats for test [map] set of size 10000, loss is 7.3949, acc is 9.95%
+[2024-07-06 11:52:00 Info] Average accuracy over all tasks for epoch number 6 for dataset idx 9 using map is 57.433
+[2024-07-06 11:52:00 Info] Finished epoch number 6, Took 233 seconds
+[2024-07-06 11:52:00 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 11:52:00 Info] Training epoch number 6 with dataset number 0
+[2024-07-06 11:52:21 Info] Client id 2, Epoch 6, train set, Iter 500 current average loss 0.1498
+[2024-07-06 11:52:39 Info] Client id 2, Epoch 6, train set, Iter 1000 current average loss 0.1252
+[2024-07-06 11:53:01 Info] Client id 2, Epoch 6, train set, Iter 1500 current average loss 0.1118
+[2024-07-06 11:53:26 Info] Client id 2, Epoch 6, train set, Iter 2000 current average loss 0.1015
+[2024-07-06 11:53:53 Info] Client id 2, Epoch 6, train set, Iter 2500 current average loss 0.0929
+[2024-07-06 11:54:16 Info] Client id 2, Epoch 6, train set, Iter 3000 current average loss 0.0851
+[2024-07-06 11:54:34 Info] Client id 2, Epoch 6, train set, Iter 3500 current average loss 0.0781
+[2024-07-06 11:54:53 Info] Client id 2, Epoch 6, train set, Iter 4000 current average loss 0.0716
+[2024-07-06 11:55:19 Info] Client id 2, Epoch 6, train set, Iter 4500 current average loss 0.0657
+[2024-07-06 11:55:26 Info] Stats for train set of size 600320, loss is 0.0636, acc is 0.0%
+[2024-07-06 11:55:26 Info] Running test set for epoch number 6 for dataset idx 0 using map
+[2024-07-06 11:55:28 Info] Stats for test [map] set of size 10000, loss is 2.504, acc is 52.14%
+[2024-07-06 11:55:28 Info] Running test set for epoch number 6 for dataset idx 1 using map
+[2024-07-06 11:55:31 Info] Stats for test [map] set of size 10000, loss is 1.9086, acc is 59.92%
+[2024-07-06 11:55:31 Info] Running test set for epoch number 6 for dataset idx 2 using map
+[2024-07-06 11:55:33 Info] Stats for test [map] set of size 10000, loss is 1.5808, acc is 64.4%
+[2024-07-06 11:55:33 Info] Running test set for epoch number 6 for dataset idx 3 using map
+[2024-07-06 11:55:35 Info] Stats for test [map] set of size 10000, loss is 0.5402, acc is 87.14%
+[2024-07-06 11:55:35 Info] Running test set for epoch number 6 for dataset idx 4 using map
+[2024-07-06 11:55:40 Info] Stats for test [map] set of size 10000, loss is 0.2267, acc is 94.05%
+[2024-07-06 11:55:40 Info] Running test set for epoch number 6 for dataset idx 5 using map
+[2024-07-06 11:55:43 Info] Stats for test [map] set of size 10000, loss is 0.1493, acc is 96.76%
+[2024-07-06 11:55:43 Info] Running test set for epoch number 6 for dataset idx 6 using map
+[2024-07-06 11:55:45 Info] Stats for test [map] set of size 10000, loss is 0.1587, acc is 96.21%
+[2024-07-06 11:55:45 Info] Running test set for epoch number 6 for dataset idx 7 using map
+[2024-07-06 11:55:47 Info] Stats for test [map] set of size 10000, loss is 7.7883, acc is 14.06%
+[2024-07-06 11:55:47 Info] Running test set for epoch number 6 for dataset idx 8 using map
+[2024-07-06 11:55:49 Info] Stats for test [map] set of size 10000, loss is 7.4891, acc is 9.93%
+[2024-07-06 11:55:49 Info] Running test set for epoch number 6 for dataset idx 9 using map
+[2024-07-06 11:55:54 Info] Stats for test [map] set of size 10000, loss is 6.8198, acc is 10.04%
+[2024-07-06 11:55:54 Info] Average accuracy over all tasks for epoch number 6 for dataset idx 9 using map is 58.465
+[2024-07-06 11:55:55 Info] Finished epoch number 6, Took 234 seconds
+[2024-07-06 11:55:55 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 11:55:55 Info] Training epoch number 6 with dataset number 0
+[2024-07-06 11:56:21 Info] Client id 3, Epoch 6, train set, Iter 500 current average loss 0.1612
+[2024-07-06 11:56:46 Info] Client id 3, Epoch 6, train set, Iter 1000 current average loss 0.1326
+[2024-07-06 11:57:08 Info] Client id 3, Epoch 6, train set, Iter 1500 current average loss 0.1163
+[2024-07-06 11:57:32 Info] Client id 3, Epoch 6, train set, Iter 2000 current average loss 0.1055
+[2024-07-06 11:57:49 Info] Client id 3, Epoch 6, train set, Iter 2500 current average loss 0.0962
+[2024-07-06 11:58:10 Info] Client id 3, Epoch 6, train set, Iter 3000 current average loss 0.0885
+[2024-07-06 11:58:23 Info] Client id 3, Epoch 6, train set, Iter 3500 current average loss 0.081
+[2024-07-06 11:58:34 Info] Client id 3, Epoch 6, train set, Iter 4000 current average loss 0.0743
+[2024-07-06 11:58:46 Info] Client id 3, Epoch 6, train set, Iter 4500 current average loss 0.0682
+[2024-07-06 11:58:51 Info] Stats for train set of size 600320, loss is 0.066, acc is 0.0%
+[2024-07-06 11:58:51 Info] Running test set for epoch number 6 for dataset idx 0 using map
+[2024-07-06 11:58:52 Info] Stats for test [map] set of size 10000, loss is 2.3274, acc is 53.98%
+[2024-07-06 11:58:52 Info] Running test set for epoch number 6 for dataset idx 1 using map
+[2024-07-06 11:58:54 Info] Stats for test [map] set of size 10000, loss is 1.8919, acc is 61.42%
+[2024-07-06 11:58:54 Info] Running test set for epoch number 6 for dataset idx 2 using map
+[2024-07-06 11:58:56 Info] Stats for test [map] set of size 10000, loss is 1.744, acc is 64.22%
+[2024-07-06 11:58:56 Info] Running test set for epoch number 6 for dataset idx 3 using map
+[2024-07-06 11:59:01 Info] Stats for test [map] set of size 10000, loss is 0.4841, acc is 88.07%
+[2024-07-06 11:59:01 Info] Running test set for epoch number 6 for dataset idx 4 using map
+[2024-07-06 11:59:04 Info] Stats for test [map] set of size 10000, loss is 0.2478, acc is 93.74%
+[2024-07-06 11:59:04 Info] Running test set for epoch number 6 for dataset idx 5 using map
+[2024-07-06 11:59:09 Info] Stats for test [map] set of size 10000, loss is 0.1321, acc is 96.81%
+[2024-07-06 11:59:09 Info] Running test set for epoch number 6 for dataset idx 6 using map
+[2024-07-06 11:59:13 Info] Stats for test [map] set of size 10000, loss is 0.1652, acc is 96.02%
+[2024-07-06 11:59:13 Info] Running test set for epoch number 6 for dataset idx 7 using map
+[2024-07-06 11:59:15 Info] Stats for test [map] set of size 10000, loss is 7.9316, acc is 13.85%
+[2024-07-06 11:59:15 Info] Running test set for epoch number 6 for dataset idx 8 using map
+[2024-07-06 11:59:17 Info] Stats for test [map] set of size 10000, loss is 8.2494, acc is 10.32%
+[2024-07-06 11:59:17 Info] Running test set for epoch number 6 for dataset idx 9 using map
+[2024-07-06 11:59:19 Info] Stats for test [map] set of size 10000, loss is 7.4138, acc is 9.76%
+[2024-07-06 11:59:19 Info] Average accuracy over all tasks for epoch number 6 for dataset idx 9 using map is 58.819
+[2024-07-06 11:59:19 Info] Finished epoch number 6, Took 204 seconds
+[2024-07-06 11:59:19 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 11:59:19 Info] Training epoch number 6 with dataset number 0
+[2024-07-06 11:59:35 Info] Client id 4, Epoch 6, train set, Iter 500 current average loss 0.1533
+[2024-07-06 11:59:56 Info] Client id 4, Epoch 6, train set, Iter 1000 current average loss 0.1274
+[2024-07-06 12:00:19 Info] Client id 4, Epoch 6, train set, Iter 1500 current average loss 0.1123
+[2024-07-06 12:00:38 Info] Client id 4, Epoch 6, train set, Iter 2000 current average loss 0.1019
+[2024-07-06 12:00:51 Info] Client id 4, Epoch 6, train set, Iter 2500 current average loss 0.0932
+[2024-07-06 12:01:02 Info] Client id 4, Epoch 6, train set, Iter 3000 current average loss 0.0856
+[2024-07-06 12:01:14 Info] Client id 4, Epoch 6, train set, Iter 3500 current average loss 0.0786
+[2024-07-06 12:01:27 Info] Client id 4, Epoch 6, train set, Iter 4000 current average loss 0.0723
+[2024-07-06 12:01:40 Info] Client id 4, Epoch 6, train set, Iter 4500 current average loss 0.0667
+[2024-07-06 12:01:45 Info] Stats for train set of size 600320, loss is 0.0646, acc is 0.0%
+[2024-07-06 12:01:45 Info] Running test set for epoch number 6 for dataset idx 0 using map
+[2024-07-06 12:01:46 Info] Stats for test [map] set of size 10000, loss is 2.2679, acc is 53.28%
+[2024-07-06 12:01:46 Info] Running test set for epoch number 6 for dataset idx 1 using map
+[2024-07-06 12:01:48 Info] Stats for test [map] set of size 10000, loss is 1.7031, acc is 62.24%
+[2024-07-06 12:01:48 Info] Running test set for epoch number 6 for dataset idx 2 using map
+[2024-07-06 12:01:50 Info] Stats for test [map] set of size 10000, loss is 2.1418, acc is 57.28%
+[2024-07-06 12:01:50 Info] Running test set for epoch number 6 for dataset idx 3 using map
+[2024-07-06 12:01:55 Info] Stats for test [map] set of size 10000, loss is 0.5971, acc is 86.81%
+[2024-07-06 12:01:55 Info] Running test set for epoch number 6 for dataset idx 4 using map
+[2024-07-06 12:01:58 Info] Stats for test [map] set of size 10000, loss is 0.2318, acc is 93.78%
+[2024-07-06 12:01:58 Info] Running test set for epoch number 6 for dataset idx 5 using map
+[2024-07-06 12:02:00 Info] Stats for test [map] set of size 10000, loss is 0.1458, acc is 96.84%
+[2024-07-06 12:02:00 Info] Running test set for epoch number 6 for dataset idx 6 using map
+[2024-07-06 12:02:02 Info] Stats for test [map] set of size 10000, loss is 0.1603, acc is 96.2%
+[2024-07-06 12:02:02 Info] Running test set for epoch number 6 for dataset idx 7 using map
+[2024-07-06 12:02:04 Info] Stats for test [map] set of size 10000, loss is 7.7123, acc is 13.66%
+[2024-07-06 12:02:04 Info] Running test set for epoch number 6 for dataset idx 8 using map
+[2024-07-06 12:02:06 Info] Stats for test [map] set of size 10000, loss is 7.7623, acc is 10.55%
+[2024-07-06 12:02:06 Info] Running test set for epoch number 6 for dataset idx 9 using map
+[2024-07-06 12:02:09 Info] Stats for test [map] set of size 10000, loss is 6.9643, acc is 9.62%
+[2024-07-06 12:02:09 Info] Average accuracy over all tasks for epoch number 6 for dataset idx 9 using map is 58.026
+[2024-07-06 12:02:10 Info] Finished epoch number 6, Took 170 seconds
+[2024-07-06 12:02:10 Info] Value of server model at round 6 is -2102.020263671875
+[2024-07-06 12:02:23 Info] Task wise accuracies are [0.5049, 0.5932, 0.6318, 0.8685, 0.9439, 0.9688]
+[2024-07-06 12:02:23 Info] Aggregated model avg acc and avg loss - 75.185,1.255550184646974
+[2024-07-06 12:02:23 Info] Round - 6 complete
+[2024-07-06 12:02:23 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 12:02:23 Info] Training epoch number 7 with dataset number 0
+[2024-07-06 12:02:52 Info] Client id 0, Epoch 7, train set, Iter 500 current average loss 0.1519
+[2024-07-06 12:03:05 Info] Client id 0, Epoch 7, train set, Iter 1000 current average loss 0.1243
+[2024-07-06 12:03:17 Info] Client id 0, Epoch 7, train set, Iter 1500 current average loss 0.1104
+[2024-07-06 12:03:30 Info] Client id 0, Epoch 7, train set, Iter 2000 current average loss 0.1006
+[2024-07-06 12:03:42 Info] Client id 0, Epoch 7, train set, Iter 2500 current average loss 0.0926
+[2024-07-06 12:04:01 Info] Client id 0, Epoch 7, train set, Iter 3000 current average loss 0.0855
+[2024-07-06 12:04:28 Info] Client id 0, Epoch 7, train set, Iter 3500 current average loss 0.0785
+[2024-07-06 12:04:49 Info] Client id 0, Epoch 7, train set, Iter 4000 current average loss 0.0723
+[2024-07-06 12:05:09 Info] Client id 0, Epoch 7, train set, Iter 4500 current average loss 0.0666
+[2024-07-06 12:05:19 Info] Stats for train set of size 600320, loss is 0.0645, acc is 0.0%
+[2024-07-06 12:05:19 Info] Running test set for epoch number 7 for dataset idx 0 using map
+[2024-07-06 12:05:20 Info] Stats for test [map] set of size 10000, loss is 3.5413, acc is 37.26%
+[2024-07-06 12:05:20 Info] Running test set for epoch number 7 for dataset idx 1 using map
+[2024-07-06 12:05:23 Info] Stats for test [map] set of size 10000, loss is 2.6959, acc is 47.62%
+[2024-07-06 12:05:23 Info] Running test set for epoch number 7 for dataset idx 2 using map
+[2024-07-06 12:05:25 Info] Stats for test [map] set of size 10000, loss is 3.1769, acc is 42.61%
+[2024-07-06 12:05:25 Info] Running test set for epoch number 7 for dataset idx 3 using map
+[2024-07-06 12:05:27 Info] Stats for test [map] set of size 10000, loss is 1.0903, acc is 74.59%
+[2024-07-06 12:05:27 Info] Running test set for epoch number 7 for dataset idx 4 using map
+[2024-07-06 12:05:30 Info] Stats for test [map] set of size 10000, loss is 0.4861, acc is 86.64%
+[2024-07-06 12:05:30 Info] Running test set for epoch number 7 for dataset idx 5 using map
+[2024-07-06 12:05:33 Info] Stats for test [map] set of size 10000, loss is 0.217, acc is 94.28%
+[2024-07-06 12:05:33 Info] Running test set for epoch number 7 for dataset idx 6 using map
+[2024-07-06 12:05:35 Info] Stats for test [map] set of size 10000, loss is 0.1528, acc is 96.76%
+[2024-07-06 12:05:35 Info] Running test set for epoch number 7 for dataset idx 7 using map
+[2024-07-06 12:05:37 Info] Stats for test [map] set of size 10000, loss is 0.1564, acc is 96.17%
+[2024-07-06 12:05:37 Info] Running test set for epoch number 7 for dataset idx 8 using map
+[2024-07-06 12:05:41 Info] Stats for test [map] set of size 10000, loss is 5.7076, acc is 10.59%
+[2024-07-06 12:05:41 Info] Running test set for epoch number 7 for dataset idx 9 using map
+[2024-07-06 12:05:43 Info] Stats for test [map] set of size 10000, loss is 6.8433, acc is 9.45%
+[2024-07-06 12:05:43 Info] Average accuracy over all tasks for epoch number 7 for dataset idx 9 using map is 59.597
+[2024-07-06 12:05:43 Info] Finished epoch number 7, Took 199 seconds
+[2024-07-06 12:05:43 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 12:05:43 Info] Training epoch number 7 with dataset number 0
+[2024-07-06 12:06:02 Info] Client id 1, Epoch 7, train set, Iter 500 current average loss 0.1567
+[2024-07-06 12:06:21 Info] Client id 1, Epoch 7, train set, Iter 1000 current average loss 0.1299
+[2024-07-06 12:06:46 Info] Client id 1, Epoch 7, train set, Iter 1500 current average loss 0.114
+[2024-07-06 12:07:07 Info] Client id 1, Epoch 7, train set, Iter 2000 current average loss 0.1027
+[2024-07-06 12:07:24 Info] Client id 1, Epoch 7, train set, Iter 2500 current average loss 0.0938
+[2024-07-06 12:07:36 Info] Client id 1, Epoch 7, train set, Iter 3000 current average loss 0.086
+[2024-07-06 12:07:48 Info] Client id 1, Epoch 7, train set, Iter 3500 current average loss 0.0787
+[2024-07-06 12:08:06 Info] Client id 1, Epoch 7, train set, Iter 4000 current average loss 0.0721
+[2024-07-06 12:08:28 Info] Client id 1, Epoch 7, train set, Iter 4500 current average loss 0.0662
+[2024-07-06 12:08:36 Info] Stats for train set of size 600320, loss is 0.0642, acc is 0.0%
+[2024-07-06 12:08:36 Info] Running test set for epoch number 7 for dataset idx 0 using map
+[2024-07-06 12:08:37 Info] Stats for test [map] set of size 10000, loss is 3.9276, acc is 38.14%
+[2024-07-06 12:08:37 Info] Running test set for epoch number 7 for dataset idx 1 using map
+[2024-07-06 12:08:39 Info] Stats for test [map] set of size 10000, loss is 3.4493, acc is 40.01%
+[2024-07-06 12:08:39 Info] Running test set for epoch number 7 for dataset idx 2 using map
+[2024-07-06 12:08:42 Info] Stats for test [map] set of size 10000, loss is 2.704, acc is 44.0%
+[2024-07-06 12:08:42 Info] Running test set for epoch number 7 for dataset idx 3 using map
+[2024-07-06 12:08:44 Info] Stats for test [map] set of size 10000, loss is 1.0098, acc is 74.36%
+[2024-07-06 12:08:44 Info] Running test set for epoch number 7 for dataset idx 4 using map
+[2024-07-06 12:08:47 Info] Stats for test [map] set of size 10000, loss is 0.4202, acc is 87.69%
+[2024-07-06 12:08:47 Info] Running test set for epoch number 7 for dataset idx 5 using map
+[2024-07-06 12:08:49 Info] Stats for test [map] set of size 10000, loss is 0.2257, acc is 93.97%
+[2024-07-06 12:08:49 Info] Running test set for epoch number 7 for dataset idx 6 using map
+[2024-07-06 12:08:51 Info] Stats for test [map] set of size 10000, loss is 0.1445, acc is 96.87%
+[2024-07-06 12:08:51 Info] Running test set for epoch number 7 for dataset idx 7 using map
+[2024-07-06 12:08:54 Info] Stats for test [map] set of size 10000, loss is 0.1697, acc is 95.9%
+[2024-07-06 12:08:54 Info] Running test set for epoch number 7 for dataset idx 8 using map
+[2024-07-06 12:08:58 Info] Stats for test [map] set of size 10000, loss is 5.8812, acc is 13.95%
+[2024-07-06 12:08:58 Info] Running test set for epoch number 7 for dataset idx 9 using map
+[2024-07-06 12:09:01 Info] Stats for test [map] set of size 10000, loss is 7.4388, acc is 9.82%
+[2024-07-06 12:09:01 Info] Average accuracy over all tasks for epoch number 7 for dataset idx 9 using map is 59.471
+[2024-07-06 12:09:01 Info] Finished epoch number 7, Took 198 seconds
+[2024-07-06 12:09:01 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 12:09:01 Info] Training epoch number 7 with dataset number 0
+[2024-07-06 12:09:30 Info] Client id 2, Epoch 7, train set, Iter 500 current average loss 0.1533
+[2024-07-06 12:09:48 Info] Client id 2, Epoch 7, train set, Iter 1000 current average loss 0.1271
+[2024-07-06 12:10:10 Info] Client id 2, Epoch 7, train set, Iter 1500 current average loss 0.1116
+[2024-07-06 12:10:33 Info] Client id 2, Epoch 7, train set, Iter 2000 current average loss 0.1018
+[2024-07-06 12:11:00 Info] Client id 2, Epoch 7, train set, Iter 2500 current average loss 0.0938
+[2024-07-06 12:11:27 Info] Client id 2, Epoch 7, train set, Iter 3000 current average loss 0.0866
+[2024-07-06 12:11:46 Info] Client id 2, Epoch 7, train set, Iter 3500 current average loss 0.0798
+[2024-07-06 12:12:08 Info] Client id 2, Epoch 7, train set, Iter 4000 current average loss 0.0738
+[2024-07-06 12:12:24 Info] Client id 2, Epoch 7, train set, Iter 4500 current average loss 0.0681
+[2024-07-06 12:12:34 Info] Stats for train set of size 600320, loss is 0.0662, acc is 0.0%
+[2024-07-06 12:12:34 Info] Running test set for epoch number 7 for dataset idx 0 using map
+[2024-07-06 12:12:37 Info] Stats for test [map] set of size 10000, loss is 3.6066, acc is 38.58%
+[2024-07-06 12:12:37 Info] Running test set for epoch number 7 for dataset idx 1 using map
+[2024-07-06 12:12:40 Info] Stats for test [map] set of size 10000, loss is 2.8197, acc is 44.57%
+[2024-07-06 12:12:40 Info] Running test set for epoch number 7 for dataset idx 2 using map
+[2024-07-06 12:12:44 Info] Stats for test [map] set of size 10000, loss is 2.8867, acc is 44.51%
+[2024-07-06 12:12:44 Info] Running test set for epoch number 7 for dataset idx 3 using map
+[2024-07-06 12:12:49 Info] Stats for test [map] set of size 10000, loss is 0.953, acc is 77.01%
+[2024-07-06 12:12:49 Info] Running test set for epoch number 7 for dataset idx 4 using map
+[2024-07-06 12:12:51 Info] Stats for test [map] set of size 10000, loss is 0.441, acc is 87.58%
+[2024-07-06 12:12:51 Info] Running test set for epoch number 7 for dataset idx 5 using map
+[2024-07-06 12:12:53 Info] Stats for test [map] set of size 10000, loss is 0.2083, acc is 94.41%
+[2024-07-06 12:12:53 Info] Running test set for epoch number 7 for dataset idx 6 using map
+[2024-07-06 12:12:55 Info] Stats for test [map] set of size 10000, loss is 0.1532, acc is 96.91%
+[2024-07-06 12:12:55 Info] Running test set for epoch number 7 for dataset idx 7 using map
+[2024-07-06 12:13:00 Info] Stats for test [map] set of size 10000, loss is 0.1538, acc is 95.84%
+[2024-07-06 12:13:00 Info] Running test set for epoch number 7 for dataset idx 8 using map
+[2024-07-06 12:13:05 Info] Stats for test [map] set of size 10000, loss is 6.5408, acc is 11.71%
+[2024-07-06 12:13:05 Info] Running test set for epoch number 7 for dataset idx 9 using map
+[2024-07-06 12:13:07 Info] Stats for test [map] set of size 10000, loss is 6.5764, acc is 9.33%
+[2024-07-06 12:13:07 Info] Average accuracy over all tasks for epoch number 7 for dataset idx 9 using map is 60.045
+[2024-07-06 12:13:07 Info] Finished epoch number 7, Took 246 seconds
+[2024-07-06 12:13:07 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 12:13:07 Info] Training epoch number 7 with dataset number 0
+[2024-07-06 12:13:24 Info] Client id 3, Epoch 7, train set, Iter 500 current average loss 0.1496
+[2024-07-06 12:13:36 Info] Client id 3, Epoch 7, train set, Iter 1000 current average loss 0.1254
+[2024-07-06 12:13:49 Info] Client id 3, Epoch 7, train set, Iter 1500 current average loss 0.1117
+[2024-07-06 12:14:07 Info] Client id 3, Epoch 7, train set, Iter 2000 current average loss 0.1021
+[2024-07-06 12:14:32 Info] Client id 3, Epoch 7, train set, Iter 2500 current average loss 0.0941
+[2024-07-06 12:14:48 Info] Client id 3, Epoch 7, train set, Iter 3000 current average loss 0.0873
+[2024-07-06 12:15:16 Info] Client id 3, Epoch 7, train set, Iter 3500 current average loss 0.0807
+[2024-07-06 12:15:39 Info] Client id 3, Epoch 7, train set, Iter 4000 current average loss 0.0745
+[2024-07-06 12:16:04 Info] Client id 3, Epoch 7, train set, Iter 4500 current average loss 0.0688
+[2024-07-06 12:16:12 Info] Stats for train set of size 600320, loss is 0.0668, acc is 0.0%
+[2024-07-06 12:16:12 Info] Running test set for epoch number 7 for dataset idx 0 using map
+[2024-07-06 12:16:14 Info] Stats for test [map] set of size 10000, loss is 3.5837, acc is 38.66%
+[2024-07-06 12:16:14 Info] Running test set for epoch number 7 for dataset idx 1 using map
+[2024-07-06 12:16:17 Info] Stats for test [map] set of size 10000, loss is 3.1904, acc is 39.36%
+[2024-07-06 12:16:17 Info] Running test set for epoch number 7 for dataset idx 2 using map
+[2024-07-06 12:16:19 Info] Stats for test [map] set of size 10000, loss is 2.9342, acc is 45.64%
+[2024-07-06 12:16:19 Info] Running test set for epoch number 7 for dataset idx 3 using map
+[2024-07-06 12:16:22 Info] Stats for test [map] set of size 10000, loss is 0.9791, acc is 78.1%
+[2024-07-06 12:16:22 Info] Running test set for epoch number 7 for dataset idx 4 using map
+[2024-07-06 12:16:24 Info] Stats for test [map] set of size 10000, loss is 0.4423, acc is 87.22%
+[2024-07-06 12:16:24 Info] Running test set for epoch number 7 for dataset idx 5 using map
+[2024-07-06 12:16:26 Info] Stats for test [map] set of size 10000, loss is 0.2192, acc is 94.17%
+[2024-07-06 12:16:26 Info] Running test set for epoch number 7 for dataset idx 6 using map
+[2024-07-06 12:16:29 Info] Stats for test [map] set of size 10000, loss is 0.1528, acc is 96.62%
+[2024-07-06 12:16:29 Info] Running test set for epoch number 7 for dataset idx 7 using map
+[2024-07-06 12:16:31 Info] Stats for test [map] set of size 10000, loss is 0.1531, acc is 95.97%
+[2024-07-06 12:16:31 Info] Running test set for epoch number 7 for dataset idx 8 using map
+[2024-07-06 12:16:33 Info] Stats for test [map] set of size 10000, loss is 6.9444, acc is 10.92%
+[2024-07-06 12:16:33 Info] Running test set for epoch number 7 for dataset idx 9 using map
+[2024-07-06 12:16:35 Info] Stats for test [map] set of size 10000, loss is 6.2534, acc is 8.71%
+[2024-07-06 12:16:35 Info] Average accuracy over all tasks for epoch number 7 for dataset idx 9 using map is 59.537
+[2024-07-06 12:16:35 Info] Finished epoch number 7, Took 207 seconds
+[2024-07-06 12:16:35 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 12:16:35 Info] Training epoch number 7 with dataset number 0
+[2024-07-06 12:17:01 Info] Client id 4, Epoch 7, train set, Iter 500 current average loss 0.1557
+[2024-07-06 12:17:26 Info] Client id 4, Epoch 7, train set, Iter 1000 current average loss 0.1284
+[2024-07-06 12:17:41 Info] Client id 4, Epoch 7, train set, Iter 1500 current average loss 0.1128
+[2024-07-06 12:17:53 Info] Client id 4, Epoch 7, train set, Iter 2000 current average loss 0.1027
+[2024-07-06 12:18:10 Info] Client id 4, Epoch 7, train set, Iter 2500 current average loss 0.0941
+[2024-07-06 12:18:28 Info] Client id 4, Epoch 7, train set, Iter 3000 current average loss 0.0864
+[2024-07-06 12:18:41 Info] Client id 4, Epoch 7, train set, Iter 3500 current average loss 0.0797
+[2024-07-06 12:18:53 Info] Client id 4, Epoch 7, train set, Iter 4000 current average loss 0.0732
+[2024-07-06 12:19:18 Info] Client id 4, Epoch 7, train set, Iter 4500 current average loss 0.0673
+[2024-07-06 12:19:27 Info] Stats for train set of size 600320, loss is 0.0652, acc is 0.0%
+[2024-07-06 12:19:27 Info] Running test set for epoch number 7 for dataset idx 0 using map
+[2024-07-06 12:19:29 Info] Stats for test [map] set of size 10000, loss is 4.1744, acc is 35.03%
+[2024-07-06 12:19:29 Info] Running test set for epoch number 7 for dataset idx 1 using map
+[2024-07-06 12:19:31 Info] Stats for test [map] set of size 10000, loss is 3.1856, acc is 42.29%
+[2024-07-06 12:19:31 Info] Running test set for epoch number 7 for dataset idx 2 using map
+[2024-07-06 12:19:33 Info] Stats for test [map] set of size 10000, loss is 3.9408, acc is 34.97%
+[2024-07-06 12:19:33 Info] Running test set for epoch number 7 for dataset idx 3 using map
+[2024-07-06 12:19:35 Info] Stats for test [map] set of size 10000, loss is 1.0423, acc is 74.65%
+[2024-07-06 12:19:35 Info] Running test set for epoch number 7 for dataset idx 4 using map
+[2024-07-06 12:19:37 Info] Stats for test [map] set of size 10000, loss is 0.7148, acc is 81.88%
+[2024-07-06 12:19:37 Info] Running test set for epoch number 7 for dataset idx 5 using map
+[2024-07-06 12:19:40 Info] Stats for test [map] set of size 10000, loss is 0.2239, acc is 94.14%
+[2024-07-06 12:19:40 Info] Running test set for epoch number 7 for dataset idx 6 using map
+[2024-07-06 12:19:44 Info] Stats for test [map] set of size 10000, loss is 0.1543, acc is 96.65%
+[2024-07-06 12:19:44 Info] Running test set for epoch number 7 for dataset idx 7 using map
+[2024-07-06 12:19:48 Info] Stats for test [map] set of size 10000, loss is 0.1568, acc is 96.15%
+[2024-07-06 12:19:48 Info] Running test set for epoch number 7 for dataset idx 8 using map
+[2024-07-06 12:19:52 Info] Stats for test [map] set of size 10000, loss is 7.5665, acc is 11.39%
+[2024-07-06 12:19:52 Info] Running test set for epoch number 7 for dataset idx 9 using map
+[2024-07-06 12:19:55 Info] Stats for test [map] set of size 10000, loss is 6.94, acc is 9.46%
+[2024-07-06 12:19:55 Info] Average accuracy over all tasks for epoch number 7 for dataset idx 9 using map is 57.661
+[2024-07-06 12:19:55 Info] Finished epoch number 7, Took 199 seconds
+[2024-07-06 12:19:55 Info] Value of server model at round 7 is -2246.021484375
+[2024-07-06 12:20:14 Info] Task wise accuracies are [0.3917, 0.472, 0.4802, 0.7283, 0.872, 0.9419, 0.9656]
+[2024-07-06 12:20:14 Info] Aggregated model avg acc and avg loss - 69.31,1.6113069461941925
+[2024-07-06 12:20:14 Info] Round - 7 complete
+[2024-07-06 12:20:14 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 12:20:14 Info] Training epoch number 8 with dataset number 0
+[2024-07-06 12:20:38 Info] Client id 0, Epoch 8, train set, Iter 500 current average loss 0.1598
+[2024-07-06 12:21:03 Info] Client id 0, Epoch 8, train set, Iter 1000 current average loss 0.131
+[2024-07-06 12:21:19 Info] Client id 0, Epoch 8, train set, Iter 1500 current average loss 0.1151
+[2024-07-06 12:21:31 Info] Client id 0, Epoch 8, train set, Iter 2000 current average loss 0.1039
+[2024-07-06 12:21:44 Info] Client id 0, Epoch 8, train set, Iter 2500 current average loss 0.0949
+[2024-07-06 12:21:55 Info] Client id 0, Epoch 8, train set, Iter 3000 current average loss 0.0867
+[2024-07-06 12:22:16 Info] Client id 0, Epoch 8, train set, Iter 3500 current average loss 0.0792
+[2024-07-06 12:22:39 Info] Client id 0, Epoch 8, train set, Iter 4000 current average loss 0.0725
+[2024-07-06 12:23:04 Info] Client id 0, Epoch 8, train set, Iter 4500 current average loss 0.0665
+[2024-07-06 12:23:14 Info] Stats for train set of size 600320, loss is 0.0644, acc is 0.0%
+[2024-07-06 12:23:14 Info] Running test set for epoch number 8 for dataset idx 0 using map
+[2024-07-06 12:23:16 Info] Stats for test [map] set of size 10000, loss is 4.8922, acc is 30.42%
+[2024-07-06 12:23:16 Info] Running test set for epoch number 8 for dataset idx 1 using map
+[2024-07-06 12:23:21 Info] Stats for test [map] set of size 10000, loss is 3.9111, acc is 29.17%
+[2024-07-06 12:23:21 Info] Running test set for epoch number 8 for dataset idx 2 using map
+[2024-07-06 12:23:24 Info] Stats for test [map] set of size 10000, loss is 3.4984, acc is 38.23%
+[2024-07-06 12:23:24 Info] Running test set for epoch number 8 for dataset idx 3 using map
+[2024-07-06 12:23:28 Info] Stats for test [map] set of size 10000, loss is 1.6379, acc is 60.59%
+[2024-07-06 12:23:28 Info] Running test set for epoch number 8 for dataset idx 4 using map
+[2024-07-06 12:23:30 Info] Stats for test [map] set of size 10000, loss is 1.1512, acc is 69.49%
+[2024-07-06 12:23:30 Info] Running test set for epoch number 8 for dataset idx 5 using map
+[2024-07-06 12:23:32 Info] Stats for test [map] set of size 10000, loss is 0.3797, acc is 89.82%
+[2024-07-06 12:23:32 Info] Running test set for epoch number 8 for dataset idx 6 using map
+[2024-07-06 12:23:37 Info] Stats for test [map] set of size 10000, loss is 0.2401, acc is 94.54%
+[2024-07-06 12:23:37 Info] Running test set for epoch number 8 for dataset idx 7 using map
+[2024-07-06 12:23:42 Info] Stats for test [map] set of size 10000, loss is 0.1443, acc is 96.77%
+[2024-07-06 12:23:42 Info] Running test set for epoch number 8 for dataset idx 8 using map
+[2024-07-06 12:23:45 Info] Stats for test [map] set of size 10000, loss is 0.17, acc is 95.83%
+[2024-07-06 12:23:45 Info] Running test set for epoch number 8 for dataset idx 9 using map
+[2024-07-06 12:23:47 Info] Stats for test [map] set of size 10000, loss is 6.1064, acc is 9.28%
+[2024-07-06 12:23:47 Info] Average accuracy over all tasks for epoch number 8 for dataset idx 9 using map is 61.414
+[2024-07-06 12:23:47 Info] Finished epoch number 8, Took 213 seconds
+[2024-07-06 12:23:47 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 12:23:47 Info] Training epoch number 8 with dataset number 0
+[2024-07-06 12:24:04 Info] Client id 1, Epoch 8, train set, Iter 500 current average loss 0.1553
+[2024-07-06 12:24:16 Info] Client id 1, Epoch 8, train set, Iter 1000 current average loss 0.1294
+[2024-07-06 12:24:38 Info] Client id 1, Epoch 8, train set, Iter 1500 current average loss 0.113
+[2024-07-06 12:24:50 Info] Client id 1, Epoch 8, train set, Iter 2000 current average loss 0.102
+[2024-07-06 12:25:02 Info] Client id 1, Epoch 8, train set, Iter 2500 current average loss 0.0925
+[2024-07-06 12:25:16 Info] Client id 1, Epoch 8, train set, Iter 3000 current average loss 0.0845
+[2024-07-06 12:25:31 Info] Client id 1, Epoch 8, train set, Iter 3500 current average loss 0.0774
+[2024-07-06 12:25:43 Info] Client id 1, Epoch 8, train set, Iter 4000 current average loss 0.071
+[2024-07-06 12:25:56 Info] Client id 1, Epoch 8, train set, Iter 4500 current average loss 0.0653
+[2024-07-06 12:26:00 Info] Stats for train set of size 600320, loss is 0.0633, acc is 0.0%
+[2024-07-06 12:26:00 Info] Running test set for epoch number 8 for dataset idx 0 using map
+[2024-07-06 12:26:01 Info] Stats for test [map] set of size 10000, loss is 5.0298, acc is 27.08%
+[2024-07-06 12:26:01 Info] Running test set for epoch number 8 for dataset idx 1 using map
+[2024-07-06 12:26:04 Info] Stats for test [map] set of size 10000, loss is 3.9867, acc is 28.0%
+[2024-07-06 12:26:04 Info] Running test set for epoch number 8 for dataset idx 2 using map
+[2024-07-06 12:26:06 Info] Stats for test [map] set of size 10000, loss is 3.2159, acc is 39.96%
+[2024-07-06 12:26:06 Info] Running test set for epoch number 8 for dataset idx 3 using map
+[2024-07-06 12:26:11 Info] Stats for test [map] set of size 10000, loss is 1.9277, acc is 54.11%
+[2024-07-06 12:26:11 Info] Running test set for epoch number 8 for dataset idx 4 using map
+[2024-07-06 12:26:13 Info] Stats for test [map] set of size 10000, loss is 1.6628, acc is 61.96%
+[2024-07-06 12:26:13 Info] Running test set for epoch number 8 for dataset idx 5 using map
+[2024-07-06 12:26:15 Info] Stats for test [map] set of size 10000, loss is 0.4493, acc is 88.05%
+[2024-07-06 12:26:15 Info] Running test set for epoch number 8 for dataset idx 6 using map
+[2024-07-06 12:26:18 Info] Stats for test [map] set of size 10000, loss is 0.2297, acc is 94.4%
+[2024-07-06 12:26:18 Info] Running test set for epoch number 8 for dataset idx 7 using map
+[2024-07-06 12:26:21 Info] Stats for test [map] set of size 10000, loss is 0.1629, acc is 96.37%
+[2024-07-06 12:26:21 Info] Running test set for epoch number 8 for dataset idx 8 using map
+[2024-07-06 12:26:23 Info] Stats for test [map] set of size 10000, loss is 0.1663, acc is 96.05%
+[2024-07-06 12:26:23 Info] Running test set for epoch number 8 for dataset idx 9 using map
+[2024-07-06 12:26:28 Info] Stats for test [map] set of size 10000, loss is 6.6978, acc is 10.05%
+[2024-07-06 12:26:28 Info] Average accuracy over all tasks for epoch number 8 for dataset idx 9 using map is 59.603
+[2024-07-06 12:26:28 Info] Finished epoch number 8, Took 161 seconds
+[2024-07-06 12:26:28 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 12:26:28 Info] Training epoch number 8 with dataset number 0
+[2024-07-06 12:26:56 Info] Client id 2, Epoch 8, train set, Iter 500 current average loss 0.1789
+[2024-07-06 12:27:12 Info] Client id 2, Epoch 8, train set, Iter 1000 current average loss 0.141
+[2024-07-06 12:27:36 Info] Client id 2, Epoch 8, train set, Iter 1500 current average loss 0.122
+[2024-07-06 12:27:59 Info] Client id 2, Epoch 8, train set, Iter 2000 current average loss 0.1097
+[2024-07-06 12:28:16 Info] Client id 2, Epoch 8, train set, Iter 2500 current average loss 0.0995
+[2024-07-06 12:28:28 Info] Client id 2, Epoch 8, train set, Iter 3000 current average loss 0.0906
+[2024-07-06 12:28:40 Info] Client id 2, Epoch 8, train set, Iter 3500 current average loss 0.0829
+[2024-07-06 12:28:52 Info] Client id 2, Epoch 8, train set, Iter 4000 current average loss 0.0758
+[2024-07-06 12:29:04 Info] Client id 2, Epoch 8, train set, Iter 4500 current average loss 0.0695
+[2024-07-06 12:29:09 Info] Stats for train set of size 600320, loss is 0.0673, acc is 0.0%
+[2024-07-06 12:29:09 Info] Running test set for epoch number 8 for dataset idx 0 using map
+[2024-07-06 12:29:12 Info] Stats for test [map] set of size 10000, loss is 4.741, acc is 29.4%
+[2024-07-06 12:29:12 Info] Running test set for epoch number 8 for dataset idx 1 using map
+[2024-07-06 12:29:14 Info] Stats for test [map] set of size 10000, loss is 3.8406, acc is 29.5%
+[2024-07-06 12:29:14 Info] Running test set for epoch number 8 for dataset idx 2 using map
+[2024-07-06 12:29:17 Info] Stats for test [map] set of size 10000, loss is 3.3461, acc is 37.17%
+[2024-07-06 12:29:17 Info] Running test set for epoch number 8 for dataset idx 3 using map
+[2024-07-06 12:29:19 Info] Stats for test [map] set of size 10000, loss is 1.6817, acc is 61.42%
+[2024-07-06 12:29:19 Info] Running test set for epoch number 8 for dataset idx 4 using map
+[2024-07-06 12:29:21 Info] Stats for test [map] set of size 10000, loss is 1.1755, acc is 70.24%
+[2024-07-06 12:29:21 Info] Running test set for epoch number 8 for dataset idx 5 using map
+[2024-07-06 12:29:24 Info] Stats for test [map] set of size 10000, loss is 0.4575, acc is 87.84%
+[2024-07-06 12:29:24 Info] Running test set for epoch number 8 for dataset idx 6 using map
+[2024-07-06 12:29:28 Info] Stats for test [map] set of size 10000, loss is 0.1987, acc is 94.62%
+[2024-07-06 12:29:28 Info] Running test set for epoch number 8 for dataset idx 7 using map
+[2024-07-06 12:29:31 Info] Stats for test [map] set of size 10000, loss is 0.1447, acc is 96.5%
+[2024-07-06 12:29:31 Info] Running test set for epoch number 8 for dataset idx 8 using map
+[2024-07-06 12:29:33 Info] Stats for test [map] set of size 10000, loss is 0.1707, acc is 95.9%
+[2024-07-06 12:29:33 Info] Running test set for epoch number 8 for dataset idx 9 using map
+[2024-07-06 12:29:35 Info] Stats for test [map] set of size 10000, loss is 6.2691, acc is 9.05%
+[2024-07-06 12:29:35 Info] Average accuracy over all tasks for epoch number 8 for dataset idx 9 using map is 61.164
+[2024-07-06 12:29:35 Info] Finished epoch number 8, Took 186 seconds
+[2024-07-06 12:29:35 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 12:29:35 Info] Training epoch number 8 with dataset number 0
+[2024-07-06 12:30:03 Info] Client id 3, Epoch 8, train set, Iter 500 current average loss 0.1651
+[2024-07-06 12:30:21 Info] Client id 3, Epoch 8, train set, Iter 1000 current average loss 0.1367
+[2024-07-06 12:30:41 Info] Client id 3, Epoch 8, train set, Iter 1500 current average loss 0.1197
+[2024-07-06 12:31:05 Info] Client id 3, Epoch 8, train set, Iter 2000 current average loss 0.1093
+[2024-07-06 12:31:27 Info] Client id 3, Epoch 8, train set, Iter 2500 current average loss 0.1003
+[2024-07-06 12:31:47 Info] Client id 3, Epoch 8, train set, Iter 3000 current average loss 0.092
+[2024-07-06 12:32:10 Info] Client id 3, Epoch 8, train set, Iter 3500 current average loss 0.0847
+[2024-07-06 12:32:23 Info] Client id 3, Epoch 8, train set, Iter 4000 current average loss 0.0778
+[2024-07-06 12:32:43 Info] Client id 3, Epoch 8, train set, Iter 4500 current average loss 0.0716
+[2024-07-06 12:32:52 Info] Stats for train set of size 600320, loss is 0.0694, acc is 0.0%
+[2024-07-06 12:32:52 Info] Running test set for epoch number 8 for dataset idx 0 using map
+[2024-07-06 12:32:53 Info] Stats for test [map] set of size 10000, loss is 4.2989, acc is 28.71%
+[2024-07-06 12:32:53 Info] Running test set for epoch number 8 for dataset idx 1 using map
+[2024-07-06 12:32:57 Info] Stats for test [map] set of size 10000, loss is 3.6393, acc is 33.58%
+[2024-07-06 12:32:57 Info] Running test set for epoch number 8 for dataset idx 2 using map
+[2024-07-06 12:32:59 Info] Stats for test [map] set of size 10000, loss is 3.0081, acc is 43.12%
+[2024-07-06 12:32:59 Info] Running test set for epoch number 8 for dataset idx 3 using map
+[2024-07-06 12:33:02 Info] Stats for test [map] set of size 10000, loss is 1.5154, acc is 62.32%
+[2024-07-06 12:33:02 Info] Running test set for epoch number 8 for dataset idx 4 using map
+[2024-07-06 12:33:04 Info] Stats for test [map] set of size 10000, loss is 1.3237, acc is 67.16%
+[2024-07-06 12:33:04 Info] Running test set for epoch number 8 for dataset idx 5 using map
+[2024-07-06 12:33:07 Info] Stats for test [map] set of size 10000, loss is 0.4649, acc is 87.17%
+[2024-07-06 12:33:07 Info] Running test set for epoch number 8 for dataset idx 6 using map
+[2024-07-06 12:33:09 Info] Stats for test [map] set of size 10000, loss is 0.2361, acc is 94.14%
+[2024-07-06 12:33:09 Info] Running test set for epoch number 8 for dataset idx 7 using map
+[2024-07-06 12:33:11 Info] Stats for test [map] set of size 10000, loss is 0.1373, acc is 96.84%
+[2024-07-06 12:33:11 Info] Running test set for epoch number 8 for dataset idx 8 using map
+[2024-07-06 12:33:13 Info] Stats for test [map] set of size 10000, loss is 0.1513, acc is 96.04%
+[2024-07-06 12:33:13 Info] Running test set for epoch number 8 for dataset idx 9 using map
+[2024-07-06 12:33:16 Info] Stats for test [map] set of size 10000, loss is 6.2299, acc is 9.61%
+[2024-07-06 12:33:16 Info] Average accuracy over all tasks for epoch number 8 for dataset idx 9 using map is 61.869
+[2024-07-06 12:33:16 Info] Finished epoch number 8, Took 220 seconds
+[2024-07-06 12:33:16 Info] BGD params: {'mean_eta': 1.0, 'std_init': 0.06, 'mc_iters': 10}
+[2024-07-06 12:33:16 Info] Training epoch number 8 with dataset number 0
+[2024-07-06 12:33:19 Info] Loss is NaN!!!

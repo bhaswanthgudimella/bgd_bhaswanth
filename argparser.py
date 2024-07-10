@@ -118,6 +118,8 @@ def get_args():
 
     parser.add_argument('--grad_clip',default=False,action = 'store_true',help='Indicates whether gradient clipping is being used')
     
+    parser.add_argument('--lr',default = 0.01,type=float,help = 'learning rate in case of sgd')
+
     args = parser.parse_args()
 
     return args
